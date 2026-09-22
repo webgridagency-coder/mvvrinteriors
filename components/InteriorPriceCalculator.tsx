@@ -230,10 +230,10 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
                   aria-label="Bar 1: Carpet area in square feet"
                 />
                 <div className="range-marks">
-                  <span>400 sqft</span>
-                  <span>1,500 sqft</span>
-                  <span>3,000 sqft</span>
-                  <span>5,000 sqft</span>
+                  <span>400<span className="range-sub">sq.ft</span></span>
+                  <span>1,500<span className="range-sub">sq.ft</span></span>
+                  <span>3,000<span className="range-sub">sq.ft</span></span>
+                  <span>5,000<span className="range-sub">sq.ft</span></span>
                 </div>
               </div>
 
@@ -302,10 +302,10 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
                   aria-label="Bar 2: Interior cost per square foot"
                 />
                 <div className="range-marks">
-                  <span>₹850 (Essential)</span>
-                  <span>₹1,450 (Standard)</span>
-                  <span>₹2,150 (Premium)</span>
-                  <span>₹3,200 (Ultra Luxury)</span>
+                  <span>₹850<span className="range-sub">Essential</span></span>
+                  <span>₹1,450<span className="range-sub">Standard</span></span>
+                  <span>₹2,150<span className="range-sub">Premium</span></span>
+                  <span>₹3,200<span className="range-sub">Luxury</span></span>
                 </div>
               </div>
 
