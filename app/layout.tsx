@@ -8,6 +8,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mvvrinteriors.vercel.app"),
   title: "MVVR CON & INTERIO — Premium Interior Design | Visakhapatnam",
   description: "MVVR Constructions & Interiors — Andhra Pradesh's premier interior design studio. Specializing in Modern Apartments, Villas, Concept Houses & Corporate Workspaces. Vastu-Compliant designs across AP & Telangana.",
   keywords: "interior design Visakhapatnam, interior design Andhra Pradesh, modular kitchen, wardrobe design, apartment interiors, villa interiors, MVVR constructions, Madhurawada interior designer",

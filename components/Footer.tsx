@@ -78,6 +78,7 @@ export default function Footer() {
               <li><Link href="/services"><ArrowRight size={10} />Interior Services</Link></li>
               <li><Link href="/portfolio"><ArrowRight size={10} />Realized Projects</Link></li>
               <li><Link href="/pricing"><ArrowRight size={10} />Pricing &amp; Calculator</Link></li>
+              <li><Link href="/blog"><ArrowRight size={10} />Interior Design Blog</Link></li>
               <li><Link href="/about"><ArrowRight size={10} />About Studio &amp; Team</Link></li>
               <li><Link href="/contact"><ArrowRight size={10} />Consultation &amp; Studio</Link></li>
             </ul>

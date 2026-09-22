@@ -15,8 +15,8 @@ export function MVVRLogo({ size = "md", dark = false }: { size?: "sm" | "md" | "
         <Image
           src="/mvvr-m-icon.png"
           alt="MVVR Icon"
-          width={42}
-          height={42}
+          width={48}
+          height={35}
           priority
           style={{ objectFit: "contain", width: "100%", height: "100%" }}
         />
@@ -47,6 +47,7 @@ export default function Navbar() {
     { label: "Services", href: "/services" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Pricing & Calculator", href: "/pricing" },
+    { label: "Blog", href: "/blog" },
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];

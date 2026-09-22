@@ -428,14 +428,14 @@ input, select, textarea { font-family: inherit; }
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 11px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .logo-mark {
-  width: 36px;
-  height: 36px;
+  width: 48px;
+  height: 35px;
   position: relative;
   flex-shrink: 0;
   display: flex;
@@ -456,6 +456,7 @@ input, select, textarea { font-family: inherit; }
   flex-direction: column;
   justify-content: center;
   line-height: 1;
+  padding-top: 1px;
 }
 
 .logo-main {
@@ -3004,8 +3005,8 @@ input, select, textarea { font-family: inherit; }
   }
 
   .logo-mark {
-    width: 28px !important;
-    height: 28px !important;
+    width: 38px !important;
+    height: 27px !important;
   }
 
   .logo-main {
