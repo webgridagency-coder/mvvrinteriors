@@ -1,40 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Phone, ArrowRight, Menu, X, MessageCircle } from "lucide-react";
 
 export function MVVRLogo({ size = "md", dark = false }: { size?: "sm" | "md" | "lg"; dark?: boolean }) {
-  const scales = { sm: 0.75, md: 1, lg: 1.3 };
+  const scales = { sm: 0.8, md: 1, lg: 1.25 };
   const s = scales[size];
   return (
     <div className="navbar-logo" style={{ transform: `scale(${s})`, transformOrigin: "left center" }}>
       <div className="logo-mark">
-        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="44" height="44" rx="4" fill={dark ? "#141414" : "transparent"} />
-          <path
-            d="M6 34V10L14 22L22 10L30 22L38 10V34"
-            stroke="url(#goldGrad)"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-          />
-          <path
-            d="M6 34L14 34M30 34L38 34"
-            stroke="url(#goldGrad)"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-          <defs>
-            <linearGradient id="goldGrad" x1="6" y1="10" x2="38" y2="34" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#E8C97A" />
-              <stop offset="50%" stopColor="#C9A84C" />
-              <stop offset="100%" stopColor="#A07830" />
-            </linearGradient>
-          </defs>
-        </svg>
+        <Image
+          src="/mvvr-m-icon.png"
+          alt="MVVR Icon"
+          width={42}
+          height={42}
+          priority
+          style={{ objectFit: "contain", width: "100%", height: "100%" }}
+        />
       </div>
       <div className="logo-text-block">
         <div className="logo-main">
