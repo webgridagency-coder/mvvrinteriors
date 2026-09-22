@@ -78,12 +78,12 @@ export default function Navbar() {
         {/* Desktop Actions */}
         <div className="nav-actions">
           <a
-            href="tel:+919642186812"
+            href="tel:+919391356077"
             className="nav-phone"
             aria-label="Call MVVR Interiors"
           >
             <Phone size={14} />
-            <span>96421 86812</span>
+            <span>93913 56077</span>
           </a>
           <Link href="/contact" className="btn-primary" id="nav-cta-btn">
             <span>Free 3D Consultation</span>
@@ -117,15 +117,15 @@ export default function Navbar() {
           ))}
           <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 12 }}>
             <a
-              href="tel:+919642186812"
+              href="tel:+919391356077"
               className="btn-outline"
               style={{ justifyContent: "center" }}
             >
               <Phone size={16} />
-              <span>Call: 96421 86812</span>
+              <span>Call: 93913 56077</span>
             </a>
             <a
-              href="https://wa.me/919642186812?text=Hello%20MVVR%20CON%20%26%20INTERIO%2C%20I%20would%20like%20to%20inquire%20about%20interior%20design%20services."
+              href="https://wa.me/919391356077?text=Hello%20MVVR%20CON%20%26%20INTERIO%2C%20I%20would%20like%20to%20inquire%20about%20interior%20design%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

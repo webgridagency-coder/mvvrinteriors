@@ -91,11 +91,9 @@ export default function ContactPage() {
                     <Phone size={20} />
                   </div>
                   <div>
-                    <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--silver)" }}>Direct Calling Numbers</div>
+                    <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--silver)" }}>Direct Calling Number</div>
                     <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--charcoal)", marginTop: 4 }}>
-                      <a href="tel:+919642186812" style={{ color: "inherit", textDecoration: "none" }}>96421 86812</a>
-                      <span style={{ color: "var(--silver)", margin: "0 8px" }}>/</span>
-                      <a href="tel:+919703825245" style={{ color: "inherit", textDecoration: "none" }}>97038 25245</a>
+                      <a href="tel:+919391356077" style={{ color: "inherit", textDecoration: "none" }}>+91 93913 56077</a>
                     </div>
                     <div style={{ fontSize: 12, color: "var(--charcoal-mid)", marginTop: 2 }}>Available 9:00 AM – 9:00 PM, 7 days a week</div>
                   </div>
@@ -110,12 +108,12 @@ export default function ContactPage() {
                     <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--silver)" }}>WhatsApp Consultation</div>
                     <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--charcoal)", marginTop: 4 }}>
                       <a
-                        href="https://wa.me/919642186812?text=Hello%20MVVR%20CON%20%26%20INTERIO%2C%20I%20would%20like%20to%20inquire%20about%20interior%20services."
+                        href="https://wa.me/919391356077?text=Hello%20MVVR%20CON%20%26%20INTERIO%2C%20I%20would%20like%20to%20inquire%20about%20interior%20services."
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{ color: "#128C7E", textDecoration: "none" }}
                       >
-                        Chat Directly (+91 96421 86812)
+                        Chat Directly (+91 93913 56077)
                       </a>
                     </div>
                     <div style={{ fontSize: 12, color: "var(--charcoal-mid)", marginTop: 2 }}>Send floor plans &amp; receive instant 3D ideas</div>
@@ -188,7 +186,7 @@ export default function ContactPage() {
                   </p>
 
                   <a
-                    href={`https://wa.me/919642186812?text=${whatsappInquiryMessage}`}
+                    href={`https://wa.me/919391356077?text=${whatsappInquiryMessage}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-whatsapp-quote"

@@ -482,7 +482,7 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
             {/* Actions */}
             <div className="summary-cta-actions">
               <a
-                href={`https://wa.me/919642186812?text=${whatsappMessage}`}
+                href={`https://wa.me/919391356077?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp-quote"

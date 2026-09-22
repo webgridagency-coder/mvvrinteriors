@@ -250,7 +250,7 @@ export default function ServicesPage() {
                         <ArrowRight size={13} />
                       </Link>
                       <a
-                        href={`https://wa.me/919642186812?text=Hello%20MVVR%2C%20I%20am%20interested%20in%20your%20${encodeURIComponent(srv.title)}%20services.`}
+                        href={`https://wa.me/919391356077?text=Hello%20MVVR%2C%20I%20am%20interested%20in%20your%20${encodeURIComponent(srv.title)}%20services.`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-outline"
@@ -329,9 +329,9 @@ export default function ServicesPage() {
               <span>Book Free Site Visit &amp; 3D Plan</span>
               <ArrowRight size={16} />
             </Link>
-            <a href="tel:+919642186812" className="btn-outline" style={{ padding: "14px 28px", fontSize: 14, borderColor: "var(--charcoal)", color: "var(--charcoal)" }}>
+            <a href="tel:+919391356077" className="btn-outline" style={{ padding: "14px 28px", fontSize: 14, borderColor: "var(--charcoal)", color: "var(--charcoal)" }}>
               <Phone size={15} />
-              <span>Call 96421 86812</span>
+              <span>Call 93913 56077</span>
             </a>
           </div>
         </div>

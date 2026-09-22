@@ -354,7 +354,7 @@ export default function PortfolioPage() {
                       <ArrowRight size={13} color="var(--gold-dark)" />
                     </Link>
                     <a
-                      href={`https://wa.me/919642186812?text=Hello%20MVVR%2C%20I%20saw%20${encodeURIComponent(project.title)}%20on%20your%20portfolio.%20Can%20we%20discuss%20a%20similar%20design%20for%20my%20home%3F`}
+                      href={`https://wa.me/919391356077?text=Hello%20MVVR%2C%20I%20saw%20${encodeURIComponent(project.title)}%20on%20your%20portfolio.%20Can%20we%20discuss%20a%20similar%20design%20for%20my%20home%3F`}
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{

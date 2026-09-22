@@ -218,7 +218,7 @@ export default function AboutPage() {
                 Visakhapatnam - 530041, Andhra Pradesh
               </p>
               <div style={{ fontSize: 13, color: "var(--charcoal)", marginBottom: 8 }}>
-                <strong>Direct:</strong> 96421 86812 / 97038 25245
+                <strong>Direct:</strong> +91 93913 56077
               </div>
               <div style={{ fontSize: 13, color: "var(--charcoal)" }}>
                 <strong>Hours:</strong> Mon - Sun: 9:30 AM to 8:30 PM
@@ -234,7 +234,7 @@ export default function AboutPage() {
                 Serving Jubilee Hills, Banjara Hills, Gachibowli, Hitec City, Kondapur &amp; surrounding luxury gated communities in Telangana.
               </p>
               <div style={{ fontSize: 13, color: "var(--charcoal)", marginBottom: 8 }}>
-                <strong>Coordination:</strong> 96421 86812
+                <strong>Coordination:</strong> +91 93913 56077
               </div>
               <div style={{ fontSize: 13, color: "var(--charcoal)" }}>
                 <strong>Consultations:</strong> By Prior Appointment / Site Visits

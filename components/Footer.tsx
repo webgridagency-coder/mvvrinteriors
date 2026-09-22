@@ -59,7 +59,7 @@ export default function Footer() {
                 <YoutubeIcon size={16} />
               </a>
               <a
-                href="https://wa.me/919642186812"
+                href="https://wa.me/919391356077"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"
@@ -112,8 +112,7 @@ export default function Footer() {
             <div className="footer-contact-item">
               <Phone size={14} />
               <div>
-                <a href="tel:+919642186812">96421 86812</a> /{" "}
-                <a href="tel:+919703825245">97038 25245</a>
+                <a href="tel:+919391356077">+91 93913 56077</a>
               </div>
             </div>
             <div className="footer-contact-item">

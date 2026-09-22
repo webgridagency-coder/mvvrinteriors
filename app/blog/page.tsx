@@ -596,7 +596,7 @@ export default function BlogIndexPage() {
             >
               <GsapMagnet strength={0.3}>
                 <a
-                  href="https://wa.me/919642186812?text=Hi%20MVVR%20Interiors,%20I%20read%20your%20design%20blog%20and%20would%20like%20to%20discuss%20interiors%20for%20my%20home."
+                  href="https://wa.me/919391356077?text=Hi%20MVVR%20Interiors,%20I%20read%20your%20design%20blog%20and%20would%20like%20to%20discuss%20interiors%20for%20my%20home."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"

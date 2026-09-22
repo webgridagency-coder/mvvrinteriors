@@ -1036,14 +1036,14 @@ export default function HomePage() {
             </GsapMagnet>
             <GsapMagnet strength={0.4}>
               <a
-                href="https://wa.me/919642186812?text=Hello%20MVVR%20CON%20%26%20INTERIO%2C%20I%20would%20like%20to%20schedule%20a%20free%20interior%20design%20consultation."
+                href="https://wa.me/919391356077?text=Hello%20MVVR%20CON%20%26%20INTERIO%2C%20I%20would%20like%20to%20schedule%20a%20free%20interior%20design%20consultation."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp-quote"
                 style={{ padding: "16px 28px", fontSize: 15 }}
               >
                 <MessageCircle size={18} />
-                <span>WhatsApp Us (96421 86812)</span>
+                <span>WhatsApp Us (93913 56077)</span>
               </a>
             </GsapMagnet>
           </div>
