@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, ArrowRight, Menu, X, MessageCircle } from "lucide-react";
+import { Phone, ArrowRight, Menu, X } from "lucide-react";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 export function MVVRLogo({ size = "md", dark = false }: { size?: "sm" | "md" | "lg"; dark?: boolean }) {
   const scales = { sm: 0.8, md: 1, lg: 1.25 };
@@ -131,7 +132,7 @@ export default function Navbar() {
               className="btn-primary"
               style={{ justifyContent: "center", background: "#25D366", borderColor: "#25D366", color: "#FFF" }}
             >
-              <MessageCircle size={16} />
+              <WhatsAppIcon size={16} />
               <span>WhatsApp Us Now</span>
             </a>
             <Link

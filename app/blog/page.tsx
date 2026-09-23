@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import GsapTextReveal from "@/components/GsapTextReveal";
 import GsapMagnet from "@/components/GsapMagnet";
 import { BLOG_POSTS, BlogPost } from "@/data/blogs";
@@ -602,8 +603,8 @@ export default function BlogIndexPage() {
                   className="btn btn-primary"
                   style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
                 >
-                  <MessageCircle size={16} />
-                  Chat on WhatsApp with Architect
+                  <WhatsAppIcon size={16} />
+                  <span>Chat on WhatsApp with Architect</span>
                 </a>
               </GsapMagnet>
               <GsapMagnet strength={0.3}>

@@ -14,6 +14,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import InteriorPriceCalculator from "@/components/InteriorPriceCalculator";
 import GsapTextReveal from "@/components/GsapTextReveal";
 import GsapScrubText from "@/components/GsapScrubText";
@@ -1042,7 +1043,7 @@ export default function HomePage() {
                 className="btn-whatsapp-quote"
                 style={{ padding: "16px 28px", fontSize: 15 }}
               >
-                <MessageCircle size={18} />
+                <WhatsAppIcon size={18} />
                 <span>WhatsApp Us (93913 56077)</span>
               </a>
             </GsapMagnet>

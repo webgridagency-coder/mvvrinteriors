@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import GsapTextReveal from "@/components/GsapTextReveal";
 import GsapMagnet from "@/components/GsapMagnet";
 
@@ -256,7 +257,7 @@ export default function ServicesPage() {
                         className="btn-outline"
                         style={{ padding: "10px 20px", fontSize: 13, borderColor: "#25D366", color: "#128C7E" }}
                       >
-                        <MessageCircle size={14} />
+                        <WhatsAppIcon size={14} style={{ marginRight: 6 }} />
                         <span>Enquire on WhatsApp</span>
                       </a>
                     </div>

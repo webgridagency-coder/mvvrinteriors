@@ -7,6 +7,7 @@ import {
   Shield, Clock, Ruler, ChefHat, BedDouble, Sofa, Flame,
   Lightbulb, Layers, Sliders
 } from "lucide-react";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 export interface PackageDetails {
   id: "basic" | "standard" | "premium";
@@ -487,7 +488,7 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
                 rel="noopener noreferrer"
                 className="btn-whatsapp-quote"
               >
-                <MessageCircle size={18} />
+                <WhatsAppIcon size={18} />
                 <span>Get This Detailed Estimate on WhatsApp</span>
               </a>
 

@@ -1,6 +1,4 @@
-"use client";
-
-import { MessageCircle } from "lucide-react";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 export default function WhatsAppButton() {
   return (
@@ -12,7 +10,7 @@ export default function WhatsAppButton() {
       aria-label="Chat with MVVR Interiors on WhatsApp"
     >
       <div className="whatsapp-pulse" />
-      <MessageCircle size={28} />
+      <WhatsAppIcon size={30} />
       <span className="whatsapp-tooltip">Chat with Interior Designer</span>
     </a>
   );

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, ArrowRight, MessageCircle } from "lucide-react";
 import { MVVRLogo } from "./Navbar";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 function InstagramIcon({ size = 18 }: { size?: number }) {
   return (
@@ -65,7 +66,7 @@ export default function Footer() {
                 className="social-link"
                 aria-label="WhatsApp"
               >
-                <MessageCircle size={16} />
+                <WhatsAppIcon size={16} />
               </a>
             </div>
           </div>

@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import InteriorPriceCalculator, { PACKAGES } from "@/components/InteriorPriceCalculator";
 import GsapTextReveal from "@/components/GsapTextReveal";
 import GsapMagnet from "@/components/GsapMagnet";
@@ -269,7 +270,7 @@ export default function PricingPage() {
               className="btn-primary"
               style={{ display: "inline-flex", background: "#25D366", borderColor: "#25D366", color: "#FFF" }}
             >
-              <MessageCircle size={16} />
+              <WhatsAppIcon size={16} />
               <span>Talk to Principal Architect on WhatsApp</span>
             </a>
           </div>
