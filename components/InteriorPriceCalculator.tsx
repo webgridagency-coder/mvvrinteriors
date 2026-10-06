@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import {
-  CheckCircle2, Info, ArrowRight, MessageCircle, Sparkles,
-  Shield, Clock, Ruler, ChefHat, BedDouble, Sofa, Flame,
-  Lightbulb, Layers, Sliders
+  CheckCircle2, Info, ArrowRight, Sparkles,
+  Shield, Clock, ChefHat, BedDouble, Sofa, Flame,
+  Lightbulb, Layers, CreditCard
 } from "lucide-react";
 import WhatsAppIcon from "./WhatsAppIcon";
 
@@ -58,20 +57,20 @@ export const PACKAGES: Record<string, PackageDetails> = {
 };
 
 const HOME_TYPES = [
-  { id: "2bhk", label: "2 BHK", sqft: 1050 },
-  { id: "3bhk", label: "3 BHK", sqft: 1550 },
-  { id: "4bhk", label: "4 BHK", sqft: 2200 },
-  { id: "villa", label: "Luxury Villa", sqft: 3400 },
-  { id: "commercial", label: "Executive Office", sqft: 1800 },
+  { id: "1bhk", label: "1 BHK", sqft: 650, color: "#06B6D4" },
+  { id: "2bhk", label: "2 BHK", sqft: 1050, color: "#FF5436" },
+  { id: "3bhk", label: "3 BHK", sqft: 1550, color: "#10B981" },
+  { id: "4bhk", label: "4 BHK", sqft: 2200, color: "#8B5CF6" },
+  { id: "villa", label: "Luxury Villa", sqft: 3400, color: "#F59E0B" },
 ];
 
 const SCOPES = [
-  { id: "kitchen", label: "Modular Kitchen", icon: ChefHat },
-  { id: "master", label: "Master Bedroom Suite", icon: BedDouble },
-  { id: "living", label: "Living Room & Foyer", icon: Sofa },
-  { id: "ceiling", label: "False Ceiling & Lighting", icon: Lightbulb },
-  { id: "pooja", label: "Pooja Room Mandir", icon: Flame },
-  { id: "kids", label: "Kids / Guest Bedroom", icon: Layers },
+  { id: "kitchen", label: "Modular Kitchen", icon: ChefHat, color: "#10B981" },
+  { id: "master", label: "Master Suite & Closets", icon: BedDouble, color: "#3B82F6" },
+  { id: "living", label: "Living Room & Foyer Lounge", icon: Sofa, color: "#FF5436" },
+  { id: "ceiling", label: "False Ceiling & 3000K Cove", icon: Lightbulb, color: "#8B5CF6" },
+  { id: "pooja", label: "Sacred Pooja Mandir", icon: Flame, color: "#F59E0B" },
+  { id: "kids", label: "Kids / Guest Bedroom", icon: Layers, color: "#EC4899" },
 ];
 
 export default function InteriorPriceCalculator({ standalone = false }: { standalone?: boolean }) {
@@ -98,60 +97,71 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
       return {
         key: "basic" as const,
         name: "Basic Essential Tier",
-        badge: "Budget Friendly",
-        color: "var(--silver-light)",
+        badge: "Budget-Smart",
         pkg: PACKAGES.basic,
+        color: "#06B6D4",
       };
-    } else if (rate <= 1800) {
+    }
+    if (rate <= 1800) {
       return {
         key: "standard" as const,
         name: "Standard Modern Tier",
-        badge: "Most Popular",
-        color: "var(--gold)",
+        badge: "🔥 Most Popular (80% Choose This)",
         pkg: PACKAGES.standard,
-      };
-    } else {
-      return {
-        key: "premium" as const,
-        name: "Premium Luxury Tier",
-        badge: "Ultra Luxury",
-        color: "var(--gold-light)",
-        pkg: PACKAGES.premium,
+        color: "#FF5436",
       };
     }
+    return {
+      key: "premium" as const,
+      name: "Ultra Luxe Architectural Tier",
+      badge: "Architectural Statement",
+      pkg: PACKAGES.premium,
+      color: "#F59E0B",
+    };
   };
 
   const activeTier = getActiveTier(ratePerSqft);
 
-  // Quick preset handlers
+  // Quick preset selector
   const handleTypeSelect = (typeId: string, area: number) => {
     setSelectedType(typeId);
     setSqft(area);
   };
 
-  const handlePackagePreset = (rate: number) => {
-    setRatePerSqft(rate);
-  };
-
+  // Scope toggle
   const toggleScope = (scopeId: string) => {
     if (activeScopes.includes(scopeId)) {
-      if (activeScopes.length > 1) {
-        setActiveScopes(activeScopes.filter(s => s !== scopeId));
-      }
+      if (activeScopes.length === 1) return; // Prevent 0 scopes
+      setActiveScopes(activeScopes.filter(id => id !== scopeId));
     } else {
       setActiveScopes([...activeScopes, scopeId]);
     }
   };
 
-  // Scope ratio calculation
-  const scopeRatio = Math.max(0.45, activeScopes.length / SCOPES.length);
-  const totalCost = Math.round(sqft * ratePerSqft * scopeRatio);
+  // Quick package rate select
+  const handlePackagePreset = (rate: number) => {
+    setRatePerSqft(rate);
+  };
+
+  // Scope weighting calculation
+  const scopeWeights: Record<string, number> = {
+    kitchen: 0.28,
+    master: 0.25,
+    living: 0.22,
+    ceiling: 0.12,
+    pooja: 0.07,
+    kids: 0.06,
+  };
+
+  const activeRatio = activeScopes.reduce((acc, curr) => acc + (scopeWeights[curr] || 0.15), 0);
+  const totalCost = Math.round(sqft * ratePerSqft * activeRatio);
 
   // Breakdown numbers
   const woodworkCost = Math.round(totalCost * 0.48);
   const kitchenCost = Math.round(totalCost * 0.24);
   const ceilingLightingCost = Math.round(totalCost * 0.16);
   const finishesHardwareCost = Math.round(totalCost * 0.12);
+  const emiPerMonth = Math.round(totalCost / 48);
 
   const fmtCurrency = (n: number) => {
     if (n >= 10000000) {
@@ -164,25 +174,28 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Hello MVVR CON & INTERIO, I used your 2-Bar Interior Price Calculator:\n` +
+    `Hello MVVR CON & INTERIO, I used your Livspace-Style Interior Price Calculator:\n` +
     `• Carpet Area: ${sqft} sq.ft (${selectedType.toUpperCase()})\n` +
-    `• Interior Cost Rate: ₹${ratePerSqft}/sq.ft (${activeTier.name})\n` +
+    `• Quality Rate: ₹${ratePerSqft}/sq.ft (${activeTier.name})\n` +
     `• Estimated Investment: ${fmtCurrency(totalCost)}\n` +
+    `• EMI approx: ₹${emiPerMonth.toLocaleString("en-IN")}/mo\n` +
     `• Included Spaces: ${activeScopes.join(", ")}\n` +
-    `Please share the detailed 3D design catalog and schedule a free site consultation.`
+    `Please share the detailed 3D design catalog and book a free consultation.`
   );
 
   return (
     <div className={`calculator-component ${standalone ? "calculator-standalone" : ""}`} id="calculator">
       <div className="calculator-wrapper">
         <div className="calculator-header-block">
-          <div className="badge-gold">
-            <Sparkles size={13} />
-            <span>Dual-Slider Interactive Estimator</span>
+          <div className="funky-pill-tag" style={{ background: "#FFF4F0", borderColor: "#FECACA", color: "#FF5436" }}>
+            <Sparkles size={14} />
+            <span>INSTANT INTERIOR COST ESTIMATOR</span>
           </div>
-          <h2 className="calc-main-title">Estimate Your Interior Investment In Real Time</h2>
+          <h2 className="calc-main-title">
+            Calculate Your Interior Investment in <span className="text-gradient-funky">30 Seconds</span>
+          </h2>
           <p className="calc-main-desc">
-            Slide <strong>Bar 1</strong> to set your floor area, and slide <strong>Bar 2</strong> to customize your interior finish grade &amp; budget per sq.ft.
+            No endless sales calls. Adjust your floor area and quality grade below to view real-time estimates with monthly EMI breakdowns.
           </p>
         </div>
 
@@ -192,26 +205,26 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
 
             {/* ================= BAR 1: CARPET AREA ================= */}
             <div className="control-group" style={{ paddingBottom: 24, borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-              <div className="slider-label-row" style={{ marginBottom: 8 }}>
+              <div className="slider-label-row" style={{ marginBottom: 10 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                   <span style={{
-                    background: "var(--gold)",
-                    color: "var(--charcoal)",
+                    background: "linear-gradient(135deg, #FF5436, #FF7A45)",
+                    color: "#FFFFFF",
                     fontSize: 11,
-                    fontWeight: 700,
-                    padding: "3px 8px",
-                    borderRadius: 4,
+                    fontWeight: 800,
+                    padding: "4px 10px",
+                    borderRadius: 999,
                     letterSpacing: "0.05em",
                     textTransform: "uppercase"
                   }}>
-                    BAR 1
+                    STEP 1
                   </span>
                   <span className="control-title" style={{ margin: 0 }}>
                     Carpet Area (Square Feet)
                   </span>
                 </div>
-                <span className="slider-current-val" style={{ fontSize: "1.3rem" }}>
-                  {sqft.toLocaleString()} <span style={{ fontSize: "0.85rem", color: "var(--silver)" }}>sq.ft</span>
+                <span className="slider-current-val" style={{ fontSize: "1.4rem", color: "#FFFFFF" }}>
+                  {sqft.toLocaleString()} <span style={{ fontSize: "0.85rem", color: "var(--silver-light)" }}>sq.ft</span>
                 </span>
               </div>
 
@@ -226,9 +239,9 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
                   onChange={e => setSqft(Number(e.target.value))}
                   className="range-slider"
                   style={{
-                    background: `linear-gradient(to right, var(--gold) 0%, var(--gold) ${((sqft - 400) / 4600) * 100}%, rgba(255,255,255,0.12) ${((sqft - 400) / 4600) * 100}%, rgba(255,255,255,0.12) 100%)`,
+                    background: `linear-gradient(to right, #FF5436 0%, #F59E0B ${((sqft - 400) / 4600) * 100}%, rgba(255,255,255,0.12) ${((sqft - 400) / 4600) * 100}%, rgba(255,255,255,0.12) 100%)`,
                   }}
-                  aria-label="Bar 1: Carpet area in square feet"
+                  aria-label="Carpet area in square feet"
                 />
                 <div className="range-marks">
                   <span>400<span className="range-sub">sq.ft</span></span>
@@ -239,9 +252,9 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
               </div>
 
               {/* Presets */}
-              <div style={{ marginTop: 14 }}>
-                <span style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 6, display: "block" }}>
-                  Quick Layout Presets:
+              <div style={{ marginTop: 16 }}>
+                <span style={{ fontSize: 11, color: "rgba(255,255,255,0.6)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8, display: "block" }}>
+                  Quick Home Type Presets:
                 </span>
                 <div className="property-types-grid">
                   {HOME_TYPES.map(t => (
@@ -250,8 +263,13 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
                       type="button"
                       className={`prop-btn ${sqft === t.sqft ? "active" : ""}`}
                       onClick={() => handleTypeSelect(t.id, t.sqft)}
+                      style={{
+                        borderColor: sqft === t.sqft ? t.color : "rgba(255,255,255,0.12)",
+                      }}
                     >
-                      <span className="prop-name">{t.label}</span>
+                      <span className="prop-name" style={{ color: sqft === t.sqft ? t.color : "inherit" }}>
+                        {t.label}
+                      </span>
                       <span className="prop-sqft">~{t.sqft} sqft</span>
                     </button>
                   ))}
@@ -261,28 +279,28 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
 
             {/* ================= BAR 2: INTERIOR COST RATE ================= */}
             <div className="control-group" style={{ paddingBottom: 24, borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-              <div className="slider-label-row" style={{ marginBottom: 8 }}>
+              <div className="slider-label-row" style={{ marginBottom: 10 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                   <span style={{
-                    background: "var(--gold-light)",
-                    color: "var(--charcoal)",
+                    background: "linear-gradient(135deg, #10B981, #059669)",
+                    color: "#FFFFFF",
                     fontSize: 11,
-                    fontWeight: 700,
-                    padding: "3px 8px",
-                    borderRadius: 4,
+                    fontWeight: 800,
+                    padding: "4px 10px",
+                    borderRadius: 999,
                     letterSpacing: "0.05em",
                     textTransform: "uppercase"
                   }}>
-                    BAR 2
+                    STEP 2
                   </span>
                   <span className="control-title" style={{ margin: 0 }}>
-                    Interior Cost &amp; Quality Rate
+                    Interior Quality Grade
                   </span>
                 </div>
                 <div style={{ textAlign: "right" }}>
-                  <span className="slider-current-val" style={{ fontSize: "1.3rem" }}>
+                  <span className="slider-current-val" style={{ fontSize: "1.4rem", color: "#FFFFFF" }}>
                     ₹{ratePerSqft.toLocaleString()}{" "}
-                    <span style={{ fontSize: "0.85rem", color: "var(--silver)" }}>/ sq.ft</span>
+                    <span style={{ fontSize: "0.85rem", color: "var(--silver-light)" }}>/ sq.ft</span>
                   </span>
                 </div>
               </div>
@@ -298,40 +316,40 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
                   onChange={e => setRatePerSqft(Number(e.target.value))}
                   className="range-slider"
                   style={{
-                    background: `linear-gradient(to right, var(--gold-light) 0%, var(--gold-light) ${((ratePerSqft - 850) / 2350) * 100}%, rgba(255,255,255,0.12) ${((ratePerSqft - 850) / 2350) * 100}%, rgba(255,255,255,0.12) 100%)`,
+                    background: `linear-gradient(to right, #10B981 0%, #3B82F6 ${((ratePerSqft - 850) / 2350) * 100}%, rgba(255,255,255,0.12) ${((ratePerSqft - 850) / 2350) * 100}%, rgba(255,255,255,0.12) 100%)`,
                   }}
-                  aria-label="Bar 2: Interior cost per square foot"
+                  aria-label="Interior cost per square foot"
                 />
                 <div className="range-marks">
                   <span>₹850<span className="range-sub">Essential</span></span>
-                  <span>₹1,450<span className="range-sub">Standard</span></span>
+                  <span>₹1,450<span className="range-sub">Modern ★</span></span>
                   <span>₹2,150<span className="range-sub">Premium</span></span>
-                  <span>₹3,200<span className="range-sub">Luxury</span></span>
+                  <span>₹3,200<span className="range-sub">Ultra Luxe</span></span>
                 </div>
               </div>
 
               {/* Tier Quick Buttons */}
-              <div style={{ marginTop: 14 }}>
-                <span style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 6, display: "block" }}>
+              <div style={{ marginTop: 16 }}>
+                <span style={{ fontSize: 11, color: "rgba(255,255,255,0.6)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8, display: "block" }}>
                   Select Package Tier Benchmark:
                 </span>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
                   <button
                     type="button"
                     onClick={() => handlePackagePreset(900)}
                     style={{
                       padding: "10px 12px",
-                      borderRadius: 8,
-                      border: activeTier.key === "basic" ? "1px solid var(--gold)" : "1px solid rgba(255,255,255,0.1)",
-                      background: activeTier.key === "basic" ? "rgba(201,168,76,0.18)" : "rgba(255,255,255,0.04)",
-                      color: activeTier.key === "basic" ? "var(--white)" : "rgba(255,255,255,0.7)",
+                      borderRadius: 10,
+                      border: activeTier.key === "basic" ? "2px solid #06B6D4" : "1px solid rgba(255,255,255,0.1)",
+                      background: activeTier.key === "basic" ? "rgba(6,182,212,0.15)" : "rgba(255,255,255,0.04)",
+                      color: activeTier.key === "basic" ? "#FFFFFF" : "rgba(255,255,255,0.7)",
                       cursor: "pointer",
                       textAlign: "center",
-                      transition: "all var(--transition-fast)"
+                      transition: "all 0.2s ease"
                     }}
                   >
-                    <div style={{ fontSize: 12, fontWeight: 700 }}>Basic</div>
-                    <div style={{ fontSize: 10, color: "var(--gold-light)" }}>₹900 / sqft</div>
+                    <div style={{ fontSize: 12, fontWeight: 700 }}>Essential</div>
+                    <div style={{ fontSize: 11, color: "#06B6D4", marginTop: 2 }}>₹900 / sqft</div>
                   </button>
 
                   <button
@@ -339,17 +357,17 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
                     onClick={() => handlePackagePreset(1450)}
                     style={{
                       padding: "10px 12px",
-                      borderRadius: 8,
-                      border: activeTier.key === "standard" ? "1px solid var(--gold)" : "1px solid rgba(255,255,255,0.1)",
-                      background: activeTier.key === "standard" ? "rgba(201,168,76,0.18)" : "rgba(255,255,255,0.04)",
-                      color: activeTier.key === "standard" ? "var(--white)" : "rgba(255,255,255,0.7)",
+                      borderRadius: 10,
+                      border: activeTier.key === "standard" ? "2px solid #FF5436" : "1px solid rgba(255,255,255,0.1)",
+                      background: activeTier.key === "standard" ? "rgba(255,84,54,0.15)" : "rgba(255,255,255,0.04)",
+                      color: activeTier.key === "standard" ? "#FFFFFF" : "rgba(255,255,255,0.7)",
                       cursor: "pointer",
                       textAlign: "center",
-                      transition: "all var(--transition-fast)"
+                      transition: "all 0.2s ease"
                     }}
                   >
-                    <div style={{ fontSize: 12, fontWeight: 700 }}>Standard ★</div>
-                    <div style={{ fontSize: 10, color: "var(--gold-light)" }}>₹1,450 / sqft</div>
+                    <div style={{ fontSize: 12, fontWeight: 700 }}>Standard Modern ★</div>
+                    <div style={{ fontSize: 11, color: "#FF5436", marginTop: 2 }}>₹1,450 / sqft</div>
                   </button>
 
                   <button
@@ -357,17 +375,17 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
                     onClick={() => handlePackagePreset(2150)}
                     style={{
                       padding: "10px 12px",
-                      borderRadius: 8,
-                      border: activeTier.key === "premium" ? "1px solid var(--gold)" : "1px solid rgba(255,255,255,0.1)",
-                      background: activeTier.key === "premium" ? "rgba(201,168,76,0.18)" : "rgba(255,255,255,0.04)",
-                      color: activeTier.key === "premium" ? "var(--white)" : "rgba(255,255,255,0.7)",
+                      borderRadius: 10,
+                      border: activeTier.key === "premium" ? "2px solid #F59E0B" : "1px solid rgba(255,255,255,0.1)",
+                      background: activeTier.key === "premium" ? "rgba(245,158,11,0.15)" : "rgba(255,255,255,0.04)",
+                      color: activeTier.key === "premium" ? "#FFFFFF" : "rgba(255,255,255,0.7)",
                       cursor: "pointer",
                       textAlign: "center",
-                      transition: "all var(--transition-fast)"
+                      transition: "all 0.2s ease"
                     }}
                   >
-                    <div style={{ fontSize: 12, fontWeight: 700 }}>Premium Luxury</div>
-                    <div style={{ fontSize: 10, color: "var(--gold-light)" }}>₹2,150 / sqft</div>
+                    <div style={{ fontSize: 12, fontWeight: 700 }}>Ultra Luxe</div>
+                    <div style={{ fontSize: 11, color: "#F59E0B", marginTop: 2 }}>₹2,150 / sqft</div>
                   </button>
                 </div>
               </div>
@@ -375,9 +393,11 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
 
             {/* Included Rooms Scope */}
             <div className="control-group">
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-                <label className="control-title" style={{ margin: 0 }}>Included Room Spaces ({activeScopes.length}/{SCOPES.length})</label>
-                <span style={{ fontSize: 11, color: "rgba(255,255,255,0.5)" }}>Click to toggle rooms</span>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                <label className="control-title" style={{ margin: 0 }}>
+                  Included Room Spaces ({activeScopes.length}/{SCOPES.length})
+                </label>
+                <span style={{ fontSize: 11, color: "rgba(255,255,255,0.6)" }}>Tap to customize rooms</span>
               </div>
               <div className="scopes-grid">
                 {SCOPES.map(s => {
@@ -389,10 +409,14 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
                       type="button"
                       className={`scope-pill-btn ${isIncluded ? "active" : ""}`}
                       onClick={() => toggleScope(s.id)}
+                      style={{
+                        borderColor: isIncluded ? s.color : "rgba(255,255,255,0.1)",
+                        background: isIncluded ? `${s.color}22` : "rgba(255,255,255,0.03)",
+                      }}
                     >
-                      <Icon size={14} />
-                      <span>{s.label}</span>
-                      {isIncluded && <CheckCircle2 size={13} className="scope-check" />}
+                      <Icon size={14} color={isIncluded ? s.color : "rgba(255,255,255,0.5)"} />
+                      <span style={{ color: isIncluded ? "#FFFFFF" : "rgba(255,255,255,0.7)" }}>{s.label}</span>
+                      {isIncluded && <CheckCircle2 size={13} color={s.color} className="scope-check" />}
                     </button>
                   );
                 })}
@@ -402,11 +426,29 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
 
           {/* Results Summary Column */}
           <div className="calc-summary-card">
-            <div className="summary-investment-box">
+            <div className="summary-investment-box" style={{ background: "linear-gradient(135deg, rgba(255,84,54,0.12) 0%, rgba(245,158,11,0.08) 100%)", border: "1px solid rgba(255,84,54,0.25)" }}>
               <span className="summary-tag">Total Estimated Investment</span>
-              <div className="summary-total-price">{fmtCurrency(totalCost)}</div>
+              <div className="summary-total-price" style={{ color: "#FFFFFF" }}>{fmtCurrency(totalCost)}</div>
               <div className="summary-subtext">
                 {sqft} sq.ft × ₹{ratePerSqft.toLocaleString()}/sq.ft ({activeTier.name})
+              </div>
+
+              {/* Monthly EMI pill */}
+              <div style={{
+                marginTop: 12,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                background: "rgba(37,99,235,0.2)",
+                border: "1px solid rgba(37,99,235,0.4)",
+                color: "#93C5FD",
+                fontSize: 12,
+                fontWeight: 600,
+                padding: "6px 14px",
+                borderRadius: 999,
+              }}>
+                <CreditCard size={14} />
+                <span>No-Cost EMI from ₹{emiPerMonth.toLocaleString("en-IN")}/mo</span>
               </div>
             </div>
 
@@ -417,10 +459,10 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
                 <span style={{
                   fontSize: 10,
                   fontWeight: 700,
-                  background: "rgba(201,168,76,0.2)",
-                  color: "var(--gold-light)",
-                  padding: "2px 8px",
-                  borderRadius: 4,
+                  background: "rgba(255,84,54,0.18)",
+                  color: "#FF5436",
+                  padding: "3px 10px",
+                  borderRadius: 999,
                   textTransform: "uppercase"
                 }}>
                   {activeTier.badge}
@@ -429,31 +471,31 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
 
               <ul className="spec-items">
                 <li>
-                  <CheckCircle2 size={15} color="var(--gold)" />
+                  <CheckCircle2 size={15} color="#10B981" />
                   <span><strong>Core Ply:</strong> {activeTier.pkg.materials[0]}</span>
                 </li>
                 <li>
-                  <CheckCircle2 size={15} color="var(--gold)" />
+                  <CheckCircle2 size={15} color="#10B981" />
                   <span><strong>Finishes:</strong> {activeTier.pkg.materials[1]}</span>
                 </li>
                 <li>
-                  <CheckCircle2 size={15} color="var(--gold)" />
+                  <CheckCircle2 size={15} color="#10B981" />
                   <span><strong>Kitchen:</strong> {activeTier.pkg.kitchen}</span>
                 </li>
                 <li>
-                  <CheckCircle2 size={15} color="var(--gold)" />
+                  <CheckCircle2 size={15} color="#10B981" />
                   <span><strong>Wardrobes:</strong> {activeTier.pkg.wardrobes}</span>
                 </li>
                 <li>
-                  <CheckCircle2 size={15} color="var(--gold)" />
+                  <CheckCircle2 size={15} color="#10B981" />
                   <span><strong>Ceiling &amp; Lighting:</strong> {activeTier.pkg.ceiling}</span>
                 </li>
                 <li>
-                  <Shield size={15} color="var(--gold)" />
+                  <Shield size={15} color="#10B981" />
                   <span><strong>Guarantee:</strong> {activeTier.pkg.warranty}</span>
                 </li>
                 <li>
-                  <Clock size={15} color="var(--gold)" />
+                  <Clock size={15} color="#FF5436" />
                   <span><strong>Timeline:</strong> Strict 45-Day Handover Guarantee</span>
                 </li>
               </ul>
@@ -489,7 +531,7 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
                 className="btn-whatsapp-quote"
               >
                 <WhatsAppIcon size={18} />
-                <span>Get This Detailed Estimate on WhatsApp</span>
+                <span>Get This Quote on WhatsApp</span>
               </a>
 
               <a href="/contact" className="btn-primary" style={{ justifyContent: "center" }}>
@@ -501,7 +543,7 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
             <div className="calc-disclaimer">
               <Info size={13} />
               <span>
-                *Estimates are calculated using Bar 1 (area) and Bar 2 (quality rate). Final quote is provided following on-site laser measurement and personalized 3D material selection.
+                *Estimates calculated using Bar 1 (area) and Bar 2 (quality grade). Final quote provided following on-site laser measurement and personalized 3D material selection.
               </span>
             </div>
           </div>

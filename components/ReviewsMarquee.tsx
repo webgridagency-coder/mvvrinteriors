@@ -12,6 +12,7 @@ export interface ReviewItem {
   rating: number;
   badge: string;
   completion: string;
+  accent: string;
 }
 
 const REVIEWS_DATA: ReviewItem[] = [
@@ -21,10 +22,11 @@ const REVIEWS_DATA: ReviewItem[] = [
     location: "Sujatha Nagar, Visakhapatnam",
     project: "3 BHK Luxury Apartment Interior",
     review:
-      "MVVR CON & INTERIO delivered exactly what they showed in the 3D walkthrough. The modular kitchen and living room fluted paneling are magnificent. Delivered on day 43 with zero delay!",
+      "MVVR delivered exactly what they showed in the 3D walkthrough. The modular kitchen and living room fluted paneling are magnificent. Delivered on day 43 with zero delay!",
     rating: 5,
     badge: "Verified Homeowner",
     completion: "Handed over in 43 Days",
+    accent: "#FF5436",
   },
   {
     name: "V. R. Murthy",
@@ -36,6 +38,7 @@ const REVIEWS_DATA: ReviewItem[] = [
     rating: 5,
     badge: "Verified Homeowner",
     completion: "Turnkey Architecture",
+    accent: "#10B981",
   },
   {
     name: "Ananya & Rajesh Reddy",
@@ -43,10 +46,11 @@ const REVIEWS_DATA: ReviewItem[] = [
     location: "Jubilee Hills, Hyderabad",
     project: "Penthouse Modular Kitchen & Mandir",
     review:
-      "The Vastu-compliant Pooja Mandir with backlit Italian marble and the island kitchen are the pride of our home. Truly exceptional craftsmanship by the MVVR team.",
+      "The Vastu-compliant Pooja Mandir with backlit Makrana marble and the island kitchen are the pride of our home. Truly exceptional craftsmanship by the MVVR team.",
     rating: 5,
     badge: "Verified Homeowner",
     completion: "100% Vastu Aligned",
+    accent: "#F59E0B",
   },
   {
     name: "Capt. S. B. Varma",
@@ -58,17 +62,19 @@ const REVIEWS_DATA: ReviewItem[] = [
     rating: 5,
     badge: "Verified Homeowner",
     completion: "Full Home Turnkey",
+    accent: "#3B82F6",
   },
   {
     name: "Deepa & Sumanth Chowdary",
     initials: "DC",
     location: "Madhapur, Hyderabad",
-    project: "Minimalist Scandinavian Villa",
+    project: "Funky Eclectic & Modern Flat",
     review:
       "From the micro-cement texture accents to concealed LED coves, MVVR transformed our bare shell into a serene sanctuary. Their site engineers were attentive daily.",
     rating: 5,
     badge: "Verified Homeowner",
     completion: "Handed over on Schedule",
+    accent: "#8B5CF6",
   },
   {
     name: "Harish & Radhika Nambiar",
@@ -80,6 +86,7 @@ const REVIEWS_DATA: ReviewItem[] = [
     rating: 5,
     badge: "Verified Homeowner",
     completion: "10-Year BWP Warranty",
+    accent: "#EC4899",
   },
   {
     name: "Dr. Madhavi Latha",
@@ -91,13 +98,13 @@ const REVIEWS_DATA: ReviewItem[] = [
     rating: 5,
     badge: "Verified Homeowner",
     completion: "Architect-Supervised",
+    accent: "#06B6D4",
   },
 ];
 
 export default function ReviewsMarquee() {
   const [isPaused, setIsPaused] = useState(false);
 
-  // Duplicate items twice to create an uninterrupted infinite scrolling ribbon
   const marqueeItems = [...REVIEWS_DATA, ...REVIEWS_DATA];
 
   return (
@@ -119,21 +126,33 @@ export default function ReviewsMarquee() {
         {marqueeItems.map((item, index) => (
           <div
             key={`${item.name}-${index}`}
-            className="review-marquee-card"
+            className="review-marquee-card-funky"
+            style={{
+              borderTop: `3px solid ${item.accent}`,
+            }}
           >
             {/* Header: Avatar, Name, Verified Badge */}
             <div className="review-card-header">
-              <div className="review-card-avatar">{item.initials}</div>
+              <div
+                className="review-card-avatar"
+                style={{
+                  background: item.accent,
+                  color: "#FFFFFF",
+                  fontWeight: 800,
+                }}
+              >
+                {item.initials}
+              </div>
               <div className="review-card-user-info">
                 <div className="review-card-name-row">
                   <h4 className="review-card-name">{item.name}</h4>
-                  <span className="review-card-verified-pill">
-                    <CheckCircle2 size={11} className="verified-icon" />
+                  <span className="review-card-verified-pill" style={{ color: "#10B981" }}>
+                    <CheckCircle2 size={12} />
                     <span>Verified</span>
                   </span>
                 </div>
                 <div className="review-card-location">
-                  <MapPin size={11} />
+                  <MapPin size={11} color={item.accent} />
                   <span>{item.location}</span>
                 </div>
               </div>
@@ -143,10 +162,17 @@ export default function ReviewsMarquee() {
             <div className="review-card-meta-row">
               <div className="review-card-stars">
                 {[...Array(item.rating)].map((_, i) => (
-                  <Star key={i} size={14} fill="#C9A84C" color="#C9A84C" />
+                  <Star key={i} size={14} fill="#F59E0B" color="#F59E0B" />
                 ))}
               </div>
-              <span className="review-card-completion-tag">
+              <span
+                className="review-card-completion-tag"
+                style={{
+                  background: `${item.accent}15`,
+                  color: item.accent,
+                  borderColor: `${item.accent}40`,
+                }}
+              >
                 {item.completion}
               </span>
             </div>
@@ -156,7 +182,7 @@ export default function ReviewsMarquee() {
 
             {/* Review Quote Body */}
             <div className="review-card-body">
-              <Quote size={20} className="review-quote-icon" />
+              <Quote size={18} style={{ color: item.accent, opacity: 0.6 }} />
               <p className="review-quote-text">&ldquo;{item.review}&rdquo;</p>
             </div>
           </div>

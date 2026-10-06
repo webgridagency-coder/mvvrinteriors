@@ -22,37 +22,41 @@ import GsapCounter from "@/components/GsapCounter";
 import GsapMagnet from "@/components/GsapMagnet";
 import LuxuryMarquee from "@/components/LuxuryMarquee";
 import ReviewsMarquee from "@/components/ReviewsMarquee";
+import ExploreByRoom from "@/components/ExploreByRoom";
+import ColorVibeMoodboard from "@/components/ColorVibeMoodboard";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import LivspacePerks from "@/components/LivspacePerks";
 
 // =============================================
 // HERO SLIDER IMAGES (Architectural Layout)
 // =============================================
 const HERO_SLIDES = [
   {
-    img: "/hero-architecture.jpg",
+    img: "/hero-funky-living.jpg",
     tag: "Madhurawada, Visakhapatnam · Est. 2018",
-    lead: "LIVE IN A HOME THAT SPEAKS FOR ITSELF.",
-    desc: "Turnkey architectural luxury crafted with German precision & Vastu harmony across AP & Telangana.",
-    name: "Architectural Villa",
-  },
-  {
-    img: "/foyer-living.jpg",
-    tag: "Beach Enclave, Rushikonda",
-    lead: "WHERE INTERIORS MEET MASTERFUL ARCHITECTURE.",
-    desc: "Italian marble and acoustic fluted panelling engineered for refined living spaces.",
-    name: "Grand Foyer Lounge",
+    lead: "HOMES THAT BURST WITH VIBRANT COLOR & LIFE.",
+    desc: "Funky, tailor-made turnkey interiors with German Blum fittings, 45-day move-in guarantee & 10-year BWP warranty across AP & TS.",
+    name: "Funky Living Lounge",
   },
   {
     img: "/kitchen-island.jpg",
-    tag: "Luxury Penthouse Suite",
-    lead: "FUNCTIONAL PERFECTION IN EVERY DETAIL.",
-    desc: "German Blum lift-ups and quartz waterfall islands built for culinary distinction.",
+    tag: "Beach Enclave, Rushikonda",
+    lead: "FRESH SAGE & QUARTZ ISLAND KITCHENS.",
+    desc: "German Blum lift-ups, tall pantry storage & anti-scratch acrylic finishes built for modern everyday joy.",
     name: "Quartz Island Kitchen",
+  },
+  {
+    img: "/hero-bedroom.jpg",
+    tag: "Luxury Penthouse Suite",
+    lead: "ROYAL INDIGO SUITES & TINTED GLASS CLOSETS.",
+    desc: "Floor-to-ceiling profile sliding wardrobes, sensor lighting & acoustic velvet headboard paneling.",
+    name: "Master Bedroom Suite",
   },
   {
     img: "/pooja-mandir.jpg",
     tag: "Sacred Sanctum Design",
     lead: "TRANSCENDENT MAKRANA MARBLE SANCTUMS.",
-    desc: "100% Vastu-aligned sacred mandirs with handcrafted teak jali and ambient warmth.",
+    desc: "100% Vastu-aligned sacred mandirs with handcrafted teak jali, brass bells & ambient warmth.",
     name: "Vastu Pooja Mandir",
   },
 ];
@@ -405,16 +409,29 @@ export default function HomePage() {
             </p>
             <div className="hero-editorial-actions">
               <GsapMagnet strength={0.35}>
-                <Link href="/contact" className="hero-btn-pill-white hero-cta-pill" id="hero-cta-quote">
-                  <span>Book Free 3D Consultation</span>
+                <Link href="/pricing" className="hero-btn-pill-white hero-cta-pill" id="hero-cta-quote" style={{ background: "linear-gradient(135deg, #FF5436 0%, #FF7A45 100%)", color: "#FFFFFF", border: "none" }}>
+                  <span>Instant Cost Calculator</span>
                   <ArrowRight size={15} />
                 </Link>
               </GsapMagnet>
               <GsapMagnet strength={0.35}>
-                <a href="#calculator" className="hero-btn-pill-glass hero-cta-pill" id="hero-cta-calc">
-                  <span>2-Bar Cost Calculator</span>
+                <a href="#explore-rooms" className="hero-btn-pill-glass hero-cta-pill" id="hero-cta-calc">
+                  <span>Explore Rooms (From ₹65k)</span>
                 </a>
               </GsapMagnet>
+            </div>
+
+            {/* Livspace Trust Badges */}
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 18 }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(255,84,54,0.28)", border: "1px solid rgba(255,84,54,0.5)", color: "#FFA085", fontSize: 11, fontWeight: 700, padding: "4px 12px", borderRadius: 999 }}>
+                ⚡ Flat 45-Day Move-In
+              </span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(16,185,129,0.28)", border: "1px solid rgba(16,185,129,0.5)", color: "#6EE7B7", fontSize: 11, fontWeight: 700, padding: "4px 12px", borderRadius: 999 }}>
+                🛡️ 10-Yr BWP Warranty
+              </span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(37,99,235,0.28)", border: "1px solid rgba(37,99,235,0.5)", color: "#93C5FD", fontSize: 11, fontWeight: 700, padding: "4px 12px", borderRadius: 999 }}>
+                💳 No-Cost EMI ₹12,999/mo
+              </span>
             </div>
           </div>
 
@@ -479,6 +496,18 @@ export default function HomePage() {
 
       {/* Infinite Luxury Architectural Marquee */}
       <LuxuryMarquee />
+
+      {/* 6 Livspace Trust Advantage Perks */}
+      <LivspacePerks />
+
+      {/* Explore By Room - Livspace Style Showcase */}
+      <ExploreByRoom />
+
+      {/* Pick Your Vibe & Funky Color Moodboard */}
+      <ColorVibeMoodboard />
+
+      {/* Before & After 45-Day Transformation Slider */}
+      <BeforeAfterSlider />
 
       {/* Editorial Manifesto Section with GSAP Kinetic Scrub Reveal */}
       <section className="editorial-manifesto-section">
