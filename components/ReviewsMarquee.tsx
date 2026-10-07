@@ -124,12 +124,12 @@ export default function ReviewsMarquee() {
                 <div className="review-card-name-row">
                   <h4 className="review-card-name">{item.name}</h4>
                   <span className="review-card-verified-pill">
-                    <CheckCircle2 size={11} className="verified-icon" />
+                    <CheckCircle2 size={11} strokeWidth={2.4} className="verified-icon" />
                     <span>Verified</span>
                   </span>
                 </div>
                 <div className="review-card-location">
-                  <MapPin size={11} />
+                  <MapPin size={11} strokeWidth={2} />
                   <span>{item.location}</span>
                 </div>
               </div>
@@ -138,7 +138,7 @@ export default function ReviewsMarquee() {
             <div className="review-card-meta-row">
               <div className="review-card-stars">
                 {[...Array(item.rating)].map((_, i) => (
-                  <Star key={i} size={14} fill="#F59E0B" color="#F59E0B" />
+                  <Star key={i} size={13} fill="#F59E0B" color="#F59E0B" strokeWidth={0.5} />
                 ))}
               </div>
               <span className="review-card-completion-tag">
@@ -149,7 +149,7 @@ export default function ReviewsMarquee() {
             <div className="review-card-project">{item.project}</div>
 
             <div className="review-card-body">
-              <Quote size={20} className="review-quote-icon" />
+              <Quote size={18} strokeWidth={1.8} className="review-quote-icon" />
               <p className="review-quote-text">&ldquo;{item.review}&rdquo;</p>
             </div>
           </div>

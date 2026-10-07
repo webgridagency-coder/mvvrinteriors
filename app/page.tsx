@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   Home, Building2, Sofa, BedDouble, ChefHat,
   MapPin, ArrowRight, Shield, Clock, Star, MessageCircle,
-  TrendingUp, Flame
+  TrendingUp, Flame, Leaf
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -451,8 +451,9 @@ export default function HomePage() {
             </div>
 
             <div className="hero-stat-floating-card">
-              <div className="badge-green" style={{ fontSize: 10, padding: "2px 8px", marginBottom: 6, display: "inline-flex" }}>
-                <span>🌿 Eco IS 710 Green Ply</span>
+              <div className="badge-green" style={{ fontSize: 10, padding: "2px 8px", marginBottom: 6, display: "inline-flex", alignItems: "center", gap: 5 }}>
+                <Leaf size={11} strokeWidth={2.2} />
+                <span>Eco IS 710 Green Ply</span>
               </div>
               <div className="hero-stat-big">
                 <GsapCounter target={45} suffix=" Days" duration={1.6} />
@@ -633,7 +634,7 @@ export default function HomePage() {
                         zIndex: 2,
                       }}
                     >
-                      <Icon size={20} />
+                      <Icon size={20} strokeWidth={1.8} />
                     </div>
                     <div
                       style={{
@@ -663,7 +664,10 @@ export default function HomePage() {
                       {srv.desc}
                     </p>
                     <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 8, marginBottom: 14 }}>
-                      <span className="badge-green" style={{ fontSize: 9.5, padding: "2px 7px" }}>🌿 Eco BWP</span>
+                      <span className="badge-green" style={{ fontSize: 9.5, padding: "2px 7px", display: "inline-flex", alignItems: "center", gap: 4 }}>
+                        <Leaf size={10} strokeWidth={2.2} />
+                        <span>Eco BWP</span>
+                      </span>
                       <span style={{ fontSize: 9.5, padding: "2px 7px", borderRadius: 999, background: "var(--liv-blue-soft)", color: "var(--liv-blue)", fontWeight: 700, border: "1px solid var(--liv-blue-border)" }}>German Blum</span>
                       <span style={{ fontSize: 9.5, padding: "2px 7px", borderRadius: 999, background: "var(--liv-pink-soft)", color: "var(--liv-pink)", fontWeight: 700, border: "1px solid var(--liv-pink-border)" }}>45-Day Handover</span>
                     </div>
@@ -673,7 +677,7 @@ export default function HomePage() {
                       style={{ marginTop: "auto" }}
                     >
                       <span>Explore Specifications</span>
-                      <ArrowRight size={13} />
+                      <ArrowRight size={13} strokeWidth={2.2} />
                     </Link>
                   </div>
                 </div>
@@ -813,7 +817,7 @@ export default function HomePage() {
                       zIndex: 3,
                     }}
                   >
-                    <MapPin size={12} color="var(--liv-pink)" />
+                    <MapPin size={12} strokeWidth={2} color="var(--liv-pink)" />
                     <span>{proj.loc}</span>
                   </div>
                 </div>
@@ -854,7 +858,7 @@ export default function HomePage() {
                     }}
                   >
                     <span>Explore project specifications</span>
-                    <ArrowRight size={12} color="var(--liv-blue)" />
+                    <ArrowRight size={13} strokeWidth={2.2} color="var(--liv-blue)" />
                   </Link>
                 </div>
               </div>
@@ -988,7 +992,7 @@ export default function HomePage() {
                 }}
               >
                 <span>Book Free Site Visit &amp; 3D Plan</span>
-                <ArrowRight size={16} />
+                <ArrowRight size={16} strokeWidth={2.2} />
               </Link>
             </GsapMagnet>
             <GsapMagnet strength={0.4}>

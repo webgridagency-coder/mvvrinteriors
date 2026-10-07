@@ -149,14 +149,14 @@ export default function ExploreByRoom() {
                     padding: "3px 9px",
                   }}
                 >
-                  <Leaf size={10} />
+                  <Leaf size={11} strokeWidth={2.2} />
                   <span>Eco BWP Ply</span>
                 </div>
                 <div className="classy-room-price-tag">
                   <span>Starts {room.startingPrice}</span>
                 </div>
                 <div className="classy-room-warranty-tag">
-                  <Shield size={12} color="var(--liv-blue)" />
+                  <Shield size={12} strokeWidth={2} color="var(--liv-blue)" />
                   <span>{room.warranty}</span>
                 </div>
               </div>
@@ -168,7 +168,7 @@ export default function ExploreByRoom() {
                 <div className="classy-room-specs">
                   {room.features.map((feat, idx) => (
                     <div key={idx} className="classy-spec-item">
-                      <Check size={13} color={idx === 0 ? "var(--liv-green)" : "var(--liv-pink)"} />
+                      <Check size={13} strokeWidth={2.4} color={idx === 0 ? "var(--liv-green)" : "var(--liv-pink)"} />
                       <span>{feat}</span>
                     </div>
                   ))}
@@ -186,7 +186,7 @@ export default function ExploreByRoom() {
                   </a>
                   <Link href="/pricing" className="classy-btn-details">
                     <span>Calculate Cost</span>
-                    <ArrowRight size={13} />
+                    <ArrowRight size={13} strokeWidth={2.2} />
                   </Link>
                 </div>
               </div>

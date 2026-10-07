@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               Blog
             </Link>
             <span>/</span>
-            <span style={{ color: "var(--gold)" }}>{post.category}</span>
+            <span style={{ color: "var(--liv-pink)" }}>{post.category}</span>
           </div>
 
           {/* Badge */}
@@ -105,8 +105,8 @@ export default async function BlogPostPage({ params }: PageProps) {
               display: "inline-flex",
               alignItems: "center",
               gap: 6,
-              background: "rgba(197, 160, 89, 0.15)",
-              color: "var(--gold)",
+              background: "rgba(235, 89, 110, 0.15)",
+              color: "var(--liv-pink)",
               padding: "5px 14px",
               borderRadius: 999,
               fontSize: 11.5,
@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               marginBottom: 16,
             }}
           >
-            <Sparkles size={12} />
+            <Sparkles size={12} strokeWidth={2} />
             {post.category}
           </div>
 
@@ -153,8 +153,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                   width: 32,
                   height: 32,
                   borderRadius: "50%",
-                  background: "var(--gold)",
-                  color: "var(--charcoal)",
+                  background: "var(--liv-pink)",
+                  color: "#FFFFFF",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -173,12 +173,12 @@ export default async function BlogPostPage({ params }: PageProps) {
             <span style={{ color: "rgba(255,255,255,0.2)" }}>|</span>
 
             <span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
-              <Calendar size={13} style={{ color: "var(--gold)" }} />
+              <Calendar size={13} strokeWidth={2} style={{ color: "var(--liv-pink)" }} />
               {post.date}
             </span>
 
             <span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
-              <Clock size={13} style={{ color: "var(--gold)" }} />
+              <Clock size={13} strokeWidth={2} style={{ color: "var(--liv-pink)" }} />
               {post.readTime}
             </span>
           </div>
@@ -227,7 +227,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 lineHeight: 1.8,
                 color: "var(--charcoal)",
                 fontWeight: 500,
-                borderLeft: "3px solid var(--gold)",
+                borderLeft: "3px solid var(--liv-pink)",
                 paddingLeft: 20,
                 marginBottom: 36,
                 fontStyle: "italic",
@@ -272,8 +272,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                   {section.bulletPoints && section.bulletPoints.length > 0 && (
                     <div
                       style={{
-                        background: "rgba(197, 160, 89, 0.05)",
-                        border: "1px solid rgba(197, 160, 89, 0.2)",
+                        background: "rgba(33, 90, 237, 0.05)",
+                        border: "1px solid rgba(33, 90, 237, 0.18)",
                         borderRadius: 14,
                         padding: "20px 24px",
                         margin: "10px 0",
@@ -283,7 +283,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                         style={{
                           fontWeight: 700,
                           fontSize: 13,
-                          color: "var(--gold-dark)",
+                          color: "var(--liv-blue)",
                           textTransform: "uppercase",
                           letterSpacing: "0.05em",
                           marginBottom: 12,
@@ -304,7 +304,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                               lineHeight: 1.5,
                             }}
                           >
-                            <CheckCircle2 size={16} style={{ color: "var(--gold-dark)", flexShrink: 0, marginTop: 3 }} />
+                            <CheckCircle2 size={16} strokeWidth={2} style={{ color: "var(--liv-blue)", flexShrink: 0, marginTop: 3 }} />
                             <span>{bp}</span>
                           </li>
                         ))}
@@ -316,8 +316,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                   {section.proTip && (
                     <div
                       style={{
-                        background: "#fff9ee",
-                        borderLeft: "4px solid var(--gold)",
+                        background: "rgba(235, 89, 110, 0.05)",
+                        borderLeft: "4px solid var(--liv-pink)",
                         borderRadius: "0 12px 12px 0",
                         padding: "16px 20px",
                         display: "flex",
@@ -326,8 +326,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                         margin: "8px 0",
                       }}
                     >
-                      <Lightbulb size={18} style={{ color: "var(--gold-dark)", flexShrink: 0, marginTop: 2 }} />
-                      <div style={{ fontSize: 14, color: "#6b531e", lineHeight: 1.6 }}>
+                      <Lightbulb size={18} strokeWidth={2} style={{ color: "var(--liv-pink)", flexShrink: 0, marginTop: 2 }} />
+                      <div style={{ fontSize: 14, color: "#334155", lineHeight: 1.6 }}>
                         <strong>Architect&rsquo;s Pro Tip:</strong> {section.proTip}
                       </div>
                     </div>
@@ -347,9 +347,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                         gap: 14,
                       }}
                     >
-                      <ShieldCheck size={20} style={{ color: "var(--gold)", flexShrink: 0, marginTop: 2 }} />
+                      <ShieldCheck size={20} strokeWidth={1.8} style={{ color: "var(--liv-pink)", flexShrink: 0, marginTop: 2 }} />
                       <div style={{ fontSize: 14.5, lineHeight: 1.6, color: "var(--silver-light)" }}>
-                        <strong style={{ color: "var(--gold)", display: "block", marginBottom: 4 }}>
+                        <strong style={{ color: "var(--liv-pink)", display: "block", marginBottom: 4 }}>
                           Standard Operating Principle:
                         </strong>
                         {section.callout}
@@ -440,7 +440,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     textDecoration: "none",
                   }}
                 >
-                  <MessageCircle size={14} />
+                  <MessageCircle size={14} strokeWidth={2} />
                   Share on WhatsApp
                 </a>
               </div>
@@ -467,7 +467,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 height: 52,
                 borderRadius: "50%",
                 background: "var(--charcoal)",
-                color: "var(--gold)",
+                color: "var(--liv-pink)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -482,7 +482,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               <div style={{ fontWeight: 700, fontSize: 16, color: "var(--charcoal)" }}>
                 {post.author.name}
               </div>
-              <div style={{ fontSize: 12.5, color: "var(--gold-dark)", fontWeight: 600, marginBottom: 4 }}>
+              <div style={{ fontSize: 12.5, color: "var(--liv-pink)", fontWeight: 600, marginBottom: 4 }}>
                 {post.author.role}
               </div>
               <p style={{ fontSize: 13, color: "var(--silver-dark)", margin: 0, lineHeight: 1.5 }}>
@@ -505,7 +505,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 textDecoration: "none",
               }}
             >
-              <ArrowLeft size={14} />
+              <ArrowLeft size={14} strokeWidth={2.2} />
               Back to All Articles
             </Link>
           </div>
@@ -519,7 +519,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     fontSize: 11,
                     textTransform: "uppercase",
                     letterSpacing: "0.1em",
-                    color: "var(--gold-dark)",
+                    color: "var(--liv-pink)",
                     fontWeight: 700,
                   }}
                 >
@@ -572,7 +572,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                       />
                     </div>
                     <div style={{ padding: "18px 20px", display: "flex", flexDirection: "column", flex: 1 }}>
-                      <span style={{ fontSize: 11, color: "var(--gold-dark)", fontWeight: 700, textTransform: "uppercase", marginBottom: 6 }}>
+                      <span style={{ fontSize: 11, color: "var(--liv-pink)", fontWeight: 700, textTransform: "uppercase", marginBottom: 6 }}>
                         {rPost.category}
                       </span>
                       <h4

@@ -75,27 +75,27 @@ export default function Footer() {
           <div>
             <div className="footer-col-title">Navigation</div>
             <ul className="footer-links">
-              <li><Link href="/"><ArrowRight size={10} />Home Overview</Link></li>
-              <li><Link href="/services"><ArrowRight size={10} />Interior Services</Link></li>
-              <li><Link href="/portfolio"><ArrowRight size={10} />Realized Projects</Link></li>
-              <li><Link href="/pricing"><ArrowRight size={10} />Pricing &amp; Calculator</Link></li>
-              <li><Link href="/blog"><ArrowRight size={10} />Interior Design Blog</Link></li>
-              <li><Link href="/about"><ArrowRight size={10} />About Studio &amp; Team</Link></li>
-              <li><Link href="/contact"><ArrowRight size={10} />Consultation &amp; Studio</Link></li>
+              <li><Link href="/"><ArrowRight size={12} strokeWidth={2.2} />Home Overview</Link></li>
+              <li><Link href="/services"><ArrowRight size={12} strokeWidth={2.2} />Interior Services</Link></li>
+              <li><Link href="/portfolio"><ArrowRight size={12} strokeWidth={2.2} />Realized Projects</Link></li>
+              <li><Link href="/pricing"><ArrowRight size={12} strokeWidth={2.2} />Pricing &amp; Calculator</Link></li>
+              <li><Link href="/blog"><ArrowRight size={12} strokeWidth={2.2} />Interior Design Blog</Link></li>
+              <li><Link href="/about"><ArrowRight size={12} strokeWidth={2.2} />About Studio &amp; Team</Link></li>
+              <li><Link href="/contact"><ArrowRight size={12} strokeWidth={2.2} />Consultation &amp; Studio</Link></li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <div className="footer-col-title">Interior Services</div>
+            <div className="footer-col-title">Services &amp; Architecture</div>
             <ul className="footer-links">
-              <li><Link href="/services"><ArrowRight size={10} />Modern 2BHK / 3BHK Interiors</Link></li>
-              <li><Link href="/services"><ArrowRight size={10} />Ultra Luxury Villa Interiors</Link></li>
-              <li><Link href="/services"><ArrowRight size={10} />Bespoke Modular Kitchens</Link></li>
-              <li><Link href="/services"><ArrowRight size={10} />Master Suites &amp; Walk-in Closets</Link></li>
-              <li><Link href="/services"><ArrowRight size={10} />Traditional &amp; Modern Pooja Mandir</Link></li>
-              <li><Link href="/services"><ArrowRight size={10} />False Ceiling &amp; Profile Lighting</Link></li>
-              <li><Link href="/services"><ArrowRight size={10} />Corporate &amp; Commercial Spaces</Link></li>
+              <li><Link href="/services#construction"><ArrowRight size={12} strokeWidth={2.2} />Civil Construction &amp; Turnkey</Link></li>
+              <li><Link href="/services#construction"><ArrowRight size={12} strokeWidth={2.2} />Residential Villas &amp; Duplexes</Link></li>
+              <li><Link href="/services#3d-design"><ArrowRight size={12} strokeWidth={2.2} />3D Elevations &amp; VR Walkthroughs</Link></li>
+              <li><Link href="/services#3d-design"><ArrowRight size={12} strokeWidth={2.2} />Photorealistic 3D Visualizations</Link></li>
+              <li><Link href="/services#interiors"><ArrowRight size={12} strokeWidth={2.2} />Luxury Modular Kitchens</Link></li>
+              <li><Link href="/services#interiors"><ArrowRight size={12} strokeWidth={2.2} />Master Suites &amp; Walk-In Closets</Link></li>
+              <li><Link href="/services#interiors"><ArrowRight size={12} strokeWidth={2.2} />Vastu-Aligned Pooja Mandir Units</Link></li>
             </ul>
           </div>
 
@@ -103,7 +103,7 @@ export default function Footer() {
           <div>
             <div className="footer-col-title">Visakhapatnam Studio</div>
             <div className="footer-contact-item">
-              <MapPin size={16} />
+              <MapPin size={16} strokeWidth={1.8} />
               <span>
                 #6-87/1/GF101, 1st Floor, Sai Priya Layout,<br />
                 Kommadhi Road, Madhurawada,<br />
@@ -111,19 +111,19 @@ export default function Footer() {
               </span>
             </div>
             <div className="footer-contact-item">
-              <Phone size={14} />
+              <Phone size={14} strokeWidth={1.8} />
               <div>
                 <a href="tel:+919391356077">+91 93913 56077</a>
               </div>
             </div>
             <div className="footer-contact-item">
-              <Mail size={14} />
+              <Mail size={14} strokeWidth={1.8} />
               <a href="mailto:mvvrconinterio@gmail.com">mvvrconinterio@gmail.com</a>
             </div>
             <div style={{ marginTop: 16 }}>
               <Link href="/contact" className="btn-primary" style={{ padding: "10px 18px", fontSize: "12px", width: "100%", justifyContent: "center" }}>
                 <span>Book Studio Visit</span>
-                <ArrowRight size={12} />
+                <ArrowRight size={13} strokeWidth={2.2} />
               </Link>
             </div>
           </div>

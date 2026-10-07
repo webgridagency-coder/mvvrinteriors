@@ -163,17 +163,17 @@ export default function BlogIndexPage() {
                       cursor: "pointer",
                       border: "none",
                       transition: "all 0.2s ease",
-                      background: isActive ? "var(--charcoal)" : "var(--white)",
-                      color: isActive ? "var(--gold)" : "var(--charcoal)",
+                      background: isActive ? "var(--liv-pink)" : "var(--white)",
+                      color: isActive ? "#FFFFFF" : "var(--charcoal)",
                       boxShadow: isActive
-                        ? "0 4px 14px rgba(0,0,0,0.15)"
+                        ? "0 4px 14px rgba(231, 46, 90, 0.25)"
                         : "0 2px 6px rgba(0,0,0,0.04)",
                       display: "inline-flex",
                       alignItems: "center",
                       gap: 6,
                     }}
                   >
-                    {isActive && <CheckCircle2 size={12} style={{ color: "var(--gold)" }} />}
+                    {isActive && <CheckCircle2 size={12} strokeWidth={2.2} style={{ color: "#FFFFFF" }} />}
                     {cat}
                   </button>
                 );
@@ -218,7 +218,7 @@ export default function BlogIndexPage() {
                       left: 20,
                       background: "rgba(10, 10, 10, 0.85)",
                       backdropFilter: "blur(8px)",
-                      color: "var(--gold)",
+                      color: "var(--liv-pink)",
                       padding: "6px 14px",
                       borderRadius: 999,
                       fontSize: 11,
@@ -230,7 +230,7 @@ export default function BlogIndexPage() {
                       gap: 6,
                     }}
                   >
-                    <Sparkles size={12} />
+                    <Sparkles size={12} strokeWidth={2} />
                     Featured Spotlight
                   </div>
                 </div>
@@ -248,7 +248,7 @@ export default function BlogIndexPage() {
                   >
                     <span
                       style={{
-                        color: "var(--gold-dark)",
+                        color: "var(--liv-pink)",
                         fontWeight: 700,
                         textTransform: "uppercase",
                         letterSpacing: "0.06em",
@@ -326,7 +326,7 @@ export default function BlogIndexPage() {
                 borderRadius: 20,
               }}
             >
-              <BookOpen size={40} style={{ color: "var(--gold)", marginBottom: 16 }} />
+              <BookOpen size={40} strokeWidth={1.8} style={{ color: "var(--liv-pink)", marginBottom: 16 }} />
               <h3 style={{ fontSize: 20, color: "var(--charcoal)", marginBottom: 8 }}>
                 No articles match your search
               </h3>
@@ -405,7 +405,7 @@ export default function BlogIndexPage() {
                           left: 14,
                           background: "rgba(10, 10, 10, 0.8)",
                           backdropFilter: "blur(6px)",
-                          color: "var(--gold)",
+                          color: "var(--liv-pink)",
                           padding: "4px 12px",
                           borderRadius: 999,
                           fontSize: 11,
@@ -503,7 +503,7 @@ export default function BlogIndexPage() {
                           style={{
                             fontSize: 12.5,
                             fontWeight: 700,
-                            color: "var(--gold-dark)",
+                            color: "var(--liv-pink)",
                             textDecoration: "none",
                             display: "inline-flex",
                             alignItems: "center",
@@ -511,7 +511,7 @@ export default function BlogIndexPage() {
                           }}
                         >
                           Read Article
-                          <ChevronRight size={14} />
+                          <ChevronRight size={14} strokeWidth={2.2} />
                         </Link>
                       </div>
                     </div>
@@ -525,13 +525,13 @@ export default function BlogIndexPage() {
           <div
             style={{
               marginTop: 80,
-              background: "linear-gradient(135deg, #111111 0%, #1a1610 100%)",
+              background: "linear-gradient(135deg, #111111 0%, #1e1b2e 100%)",
               borderRadius: 24,
               padding: "50px 40px",
               textAlign: "center",
               position: "relative",
               overflow: "hidden",
-              border: "1px solid rgba(197, 160, 89, 0.2)",
+              border: "1px solid rgba(231, 46, 90, 0.2)",
               boxShadow: "0 24px 60px rgba(0,0,0,0.3)",
             }}
           >
@@ -543,7 +543,7 @@ export default function BlogIndexPage() {
                 transform: "translateX(-50%)",
                 width: 300,
                 height: 1,
-                background: "linear-gradient(90deg, transparent, var(--gold), transparent)",
+                background: "linear-gradient(90deg, transparent, var(--liv-pink), transparent)",
               }}
             />
             <div
@@ -551,8 +551,8 @@ export default function BlogIndexPage() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 6,
-                background: "rgba(197, 160, 89, 0.12)",
-                color: "var(--gold)",
+                background: "var(--liv-pink-soft)",
+                color: "var(--liv-pink)",
                 padding: "6px 14px",
                 borderRadius: 999,
                 fontSize: 11.5,
@@ -562,7 +562,7 @@ export default function BlogIndexPage() {
                 marginBottom: 16,
               }}
             >
-              <Sparkles size={12} />
+              <Sparkles size={12} strokeWidth={2} />
               Bespoke Interior Craftsmanship
             </div>
             <h2

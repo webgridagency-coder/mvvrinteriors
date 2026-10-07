@@ -148,7 +148,7 @@ export default function PricingPage() {
       <section style={{ padding: "90px 0", background: "var(--cream)" }}>
         <div className="container">
           <div style={{ textAlign: "center", maxWidth: 740, margin: "0 auto 50px" }}>
-            <span className="page-hero-badge" style={{ color: "var(--charcoal)", borderColor: "var(--gold)" }}>
+            <span className="page-hero-badge" style={{ color: "var(--charcoal)", borderColor: "var(--liv-pink)" }}>
               Side-by-Side Comparison
             </span>
             <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 3.5vw, 2.8rem)", fontWeight: 700, color: "var(--charcoal)", marginBottom: 14 }}>
@@ -166,16 +166,16 @@ export default function PricingPage() {
                   <th style={{ padding: "20px 24px", fontSize: 14, fontWeight: 700, width: "28%" }}>Design Element</th>
                   <th style={{ padding: "20px 20px", fontSize: 14, fontWeight: 700, width: "24%", borderLeft: "1px solid rgba(255,255,255,0.1)" }}>
                     Basic Essential
-                    <div style={{ fontSize: 12, color: "var(--gold-light)", fontWeight: 400, marginTop: 4 }}>₹900 / sq.ft</div>
+                    <div style={{ fontSize: 12, color: "rgba(255,255,255,0.75)", fontWeight: 400, marginTop: 4 }}>₹900 / sq.ft</div>
                   </th>
                   <th style={{ padding: "20px 20px", fontSize: 14, fontWeight: 700, width: "24%", borderLeft: "1px solid rgba(255,255,255,0.1)", background: "#252525" }}>
                     Standard Modern
-                    <span style={{ marginLeft: 6, fontSize: 10, background: "var(--gold)", color: "var(--charcoal)", padding: "2px 6px", borderRadius: 4, fontWeight: 700 }}>POPULAR</span>
-                    <div style={{ fontSize: 12, color: "var(--gold-light)", fontWeight: 400, marginTop: 4 }}>₹1,450 / sq.ft</div>
+                    <span style={{ marginLeft: 6, fontSize: 10, background: "var(--liv-pink)", color: "#FFFFFF", padding: "2px 6px", borderRadius: 4, fontWeight: 700 }}>POPULAR</span>
+                    <div style={{ fontSize: 12, color: "rgba(255,255,255,0.75)", fontWeight: 400, marginTop: 4 }}>₹1,450 / sq.ft</div>
                   </th>
                   <th style={{ padding: "20px 20px", fontSize: 14, fontWeight: 700, width: "24%", borderLeft: "1px solid rgba(255,255,255,0.1)" }}>
                     Premium Luxury
-                    <div style={{ fontSize: 12, color: "var(--gold-light)", fontWeight: 400, marginTop: 4 }}>₹2,150 / sq.ft</div>
+                    <div style={{ fontSize: 12, color: "rgba(255,255,255,0.75)", fontWeight: 400, marginTop: 4 }}>₹2,150 / sq.ft</div>
                   </th>
                 </tr>
               </thead>
@@ -188,7 +188,7 @@ export default function PricingPage() {
                     <td style={{ padding: "16px 20px", fontSize: 12.5, color: "var(--charcoal-mid)", borderLeft: "1px solid rgba(0,0,0,0.06)", lineHeight: 1.45 }}>
                       {row.basic}
                     </td>
-                    <td style={{ padding: "16px 20px", fontSize: 12.5, color: "var(--charcoal-mid)", borderLeft: "1px solid rgba(0,0,0,0.06)", background: i % 2 === 0 ? "rgba(201,168,76,0.04)" : "rgba(201,168,76,0.08)", fontWeight: 500, lineHeight: 1.45 }}>
+                    <td style={{ padding: "16px 20px", fontSize: 12.5, color: "var(--charcoal-mid)", borderLeft: "1px solid rgba(0,0,0,0.06)", background: i % 2 === 0 ? "var(--liv-blue-soft)" : "rgba(27, 92, 235, 0.08)", fontWeight: 500, lineHeight: 1.45 }}>
                       {row.standard}
                     </td>
                     <td style={{ padding: "16px 20px", fontSize: 12.5, color: "var(--charcoal-mid)", borderLeft: "1px solid rgba(0,0,0,0.06)", lineHeight: 1.45 }}>
@@ -206,7 +206,7 @@ export default function PricingPage() {
       <section style={{ padding: "80px 0", background: "var(--white)" }}>
         <div className="container" style={{ maxWidth: 840 }}>
           <div style={{ textAlign: "center", marginBottom: 50 }}>
-            <span className="page-hero-badge" style={{ color: "var(--charcoal)", borderColor: "var(--gold)" }}>
+            <span className="page-hero-badge" style={{ color: "var(--charcoal)", borderColor: "var(--liv-pink)" }}>
               Client Queries
             </span>
             <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--charcoal)" }}>
@@ -247,7 +247,7 @@ export default function PricingPage() {
                     }}
                   >
                     <span>{faq.q}</span>
-                    {isOpen ? <ChevronUp size={18} color="var(--gold-dark)" /> : <ChevronDown size={18} color="var(--silver)" />}
+                    {isOpen ? <ChevronUp size={18} strokeWidth={2} color="var(--liv-pink)" /> : <ChevronDown size={18} strokeWidth={2} color="#64748B" />}
                   </button>
                   {isOpen && (
                     <div style={{ padding: "0 24px 20px", fontSize: 14, lineHeight: 1.65, color: "var(--charcoal-light)" }}>

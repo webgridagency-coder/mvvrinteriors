@@ -77,13 +77,13 @@ export default function AboutPage() {
                 alignItems: "center"
               }}>
                 <div>
-                  <div style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 700, color: "var(--gold-light)" }}>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 700, color: "var(--liv-pink)" }}>
                     <GsapCounter target={500} suffix="+ Homes" />
                   </div>
                   <div style={{ fontSize: 11, color: "rgba(255,255,255,0.7)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Transformed Across AP &amp; Telangana</div>
                 </div>
                 <div style={{ textAlign: "right" }}>
-                  <div style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 700, color: "var(--gold-light)" }}>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: 700, color: "var(--liv-blue)" }}>
                     <GsapCounter target={45} suffix=" Days" />
                   </div>
                   <div style={{ fontSize: 11, color: "rgba(255,255,255,0.7)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Guaranteed Handover</div>
@@ -93,7 +93,7 @@ export default function AboutPage() {
 
             {/* Content */}
             <div>
-              <span className="page-hero-badge" style={{ color: "var(--charcoal)", borderColor: "var(--gold)" }}>
+              <span className="page-hero-badge" style={{ color: "var(--charcoal)", borderColor: "var(--liv-pink)" }}>
                 Our Heritage &amp; Vision
               </span>
               <GsapTextReveal
@@ -117,7 +117,7 @@ export default function AboutPage() {
                 ].map((item, i) => (
                   <div key={i} className="interactive-card" style={{ background: "var(--white)", padding: "16px", borderRadius: 10, border: "1px solid rgba(0,0,0,0.06)" }}>
                     <h4 style={{ fontSize: 13, fontWeight: 700, color: "var(--charcoal)", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
-                      <CheckCircle2 size={15} color="var(--gold-dark)" />
+                      <CheckCircle2 size={15} strokeWidth={2} color="var(--liv-pink)" />
                       {item.title}
                     </h4>
                     <p style={{ fontSize: 11.5, color: "var(--charcoal-mid)", lineHeight: 1.45 }}>{item.desc}</p>
@@ -129,7 +129,7 @@ export default function AboutPage() {
                 <GsapMagnet strength={0.35}>
                   <Link href="/contact" className="btn-primary">
                     <span>Schedule Studio Consultation</span>
-                    <ArrowRight size={14} />
+                    <ArrowRight size={14} strokeWidth={2.2} />
                   </Link>
                 </GsapMagnet>
                 <GsapMagnet strength={0.35}>
@@ -175,8 +175,8 @@ export default function AboutPage() {
                     transition: "all var(--transition-fast)"
                   }}
                 >
-                  <div style={{ width: 46, height: 46, borderRadius: 10, background: "rgba(201,168,76,0.15)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18, color: "var(--gold)" }}>
-                    <Icon size={24} />
+                  <div style={{ width: 46, height: 46, borderRadius: 10, background: "var(--liv-pink-soft)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18, color: "var(--liv-pink)" }}>
+                    <Icon size={24} strokeWidth={1.8} />
                   </div>
                   <h3 style={{ fontSize: "1.15rem", fontWeight: 600, color: "var(--white)", marginBottom: 10 }}>
                     {p.title}
@@ -195,7 +195,7 @@ export default function AboutPage() {
       <section style={{ padding: "80px 0", background: "var(--white)" }}>
         <div className="container">
           <div style={{ textAlign: "center", maxWidth: 680, margin: "0 auto 50px" }}>
-            <span className="page-hero-badge" style={{ color: "var(--charcoal)", borderColor: "var(--gold)" }}>
+            <span className="page-hero-badge" style={{ color: "var(--charcoal)", borderColor: "var(--liv-pink)" }}>
               Experience Centres
             </span>
             <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--charcoal)" }}>
@@ -209,7 +209,7 @@ export default function AboutPage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 30, maxWidth: 840, margin: "0 auto" }}>
             <div style={{ background: "var(--cream)", borderRadius: 16, padding: 32, border: "1px solid rgba(0,0,0,0.06)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-                <MapPin size={20} color="var(--gold-dark)" />
+                <MapPin size={20} strokeWidth={1.8} color="var(--liv-pink)" />
                 <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--charcoal)" }}>Visakhapatnam Design HQ</h3>
               </div>
               <p style={{ fontSize: "0.9rem", color: "var(--charcoal-mid)", lineHeight: 1.6, marginBottom: 16 }}>
@@ -227,7 +227,7 @@ export default function AboutPage() {
 
             <div style={{ background: "var(--cream)", borderRadius: 16, padding: 32, border: "1px solid rgba(0,0,0,0.06)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-                <Building2 size={20} color="var(--gold-dark)" />
+                <Building2 size={20} strokeWidth={1.8} color="var(--liv-blue)" />
                 <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--charcoal)" }}>Hyderabad Regional Service</h3>
               </div>
               <p style={{ fontSize: "0.9rem", color: "var(--charcoal-mid)", lineHeight: 1.6, marginBottom: 16 }}>

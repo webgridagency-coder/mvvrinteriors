@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Sparkles, MapPin, Ruler, Clock, ArrowRight, Eye,
-  CheckCircle2, Star, Filter, MessageCircle
+  CheckCircle2, Star, Filter, MessageCircle, Check
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -191,14 +191,14 @@ export default function PortfolioPage() {
                 style={{
                   padding: "10px 20px",
                   borderRadius: 999,
-                  border: activeFilter === cat.id ? "1px solid var(--gold)" : "1px solid rgba(0,0,0,0.1)",
-                  background: activeFilter === cat.id ? "var(--charcoal)" : "var(--white)",
-                  color: activeFilter === cat.id ? "var(--gold-light)" : "var(--charcoal)",
+                  border: activeFilter === cat.id ? "1px solid var(--liv-pink)" : "1px solid #E2E8F0",
+                  background: activeFilter === cat.id ? "var(--liv-pink)" : "var(--white)",
+                  color: activeFilter === cat.id ? "#FFFFFF" : "var(--charcoal)",
                   fontWeight: 600,
                   fontSize: 13,
                   cursor: "pointer",
                   transition: "all var(--transition-fast)",
-                  boxShadow: activeFilter === cat.id ? "0 4px 14px rgba(0,0,0,0.2)" : "none"
+                  boxShadow: activeFilter === cat.id ? "0 4px 14px rgba(231, 46, 90, 0.25)" : "none"
                 }}
               >
                 {cat.label}
@@ -247,8 +247,8 @@ export default function PortfolioPage() {
                     right: 14,
                     background: "rgba(20,20,20,0.85)",
                     backdropFilter: "blur(6px)",
-                    border: "1px solid rgba(201,168,76,0.4)",
-                    color: "var(--gold-light)",
+                    border: "1px solid rgba(235,89,110,0.35)",
+                    color: "var(--liv-pink)",
                     fontSize: 11,
                     fontWeight: 700,
                     padding: "4px 12px",
@@ -272,7 +272,7 @@ export default function PortfolioPage() {
                     alignItems: "center",
                     gap: 5
                   }}>
-                    <MapPin size={12} color="var(--gold-light)" />
+                    <MapPin size={12} strokeWidth={2} color="var(--liv-pink)" />
                     <span>{project.location}</span>
                   </div>
                 </div>
@@ -280,16 +280,16 @@ export default function PortfolioPage() {
                 {/* Content */}
                 <div style={{ padding: 24, display: "flex", flexDirection: "column", flex: 1 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-                    <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--gold-dark)" }}>
+                    <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--liv-pink)" }}>
                       {project.categoryLabel}
                     </span>
                     <div style={{ display: "flex", gap: 12, fontSize: 12, color: "var(--silver)" }}>
                       <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                        <Ruler size={12} />
+                        <Ruler size={12} strokeWidth={2} />
                         {project.area}
                       </span>
                       <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                        <Clock size={12} />
+                        <Clock size={12} strokeWidth={2} />
                         {project.timeline}
                       </span>
                     </div>
@@ -312,12 +312,16 @@ export default function PortfolioPage() {
                           fontSize: 11,
                           padding: "3px 8px",
                           borderRadius: 4,
-                          background: "rgba(201,168,76,0.1)",
+                          background: "var(--liv-pink-soft)",
                           color: "var(--charcoal)",
-                          fontWeight: 500
+                          fontWeight: 500,
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: 4
                         }}
                       >
-                        ✓ {h}
+                        <Check size={11} strokeWidth={2.4} color="var(--liv-pink)" />
+                        <span>{h}</span>
                       </span>
                     ))}
                   </div>
@@ -328,7 +332,7 @@ export default function PortfolioPage() {
                     padding: "12px 14px",
                     borderRadius: 8,
                     background: "var(--cream-dark)",
-                    borderLeft: "3px solid var(--gold)",
+                    borderLeft: "3px solid var(--liv-blue)",
                     fontSize: 12,
                     fontStyle: "italic",
                     color: "var(--charcoal)",
@@ -351,7 +355,7 @@ export default function PortfolioPage() {
                       }}
                     >
                       <span>Estimate Similar Space</span>
-                      <ArrowRight size={13} color="var(--gold-dark)" />
+                      <ArrowRight size={13} strokeWidth={2.2} color="var(--liv-blue)" />
                     </Link>
                     <a
                       href={`https://wa.me/919391356077?text=Hello%20MVVR%2C%20I%20saw%20${encodeURIComponent(project.title)}%20on%20your%20portfolio.%20Can%20we%20discuss%20a%20similar%20design%20for%20my%20home%3F`}

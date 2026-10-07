@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowLeftRight, CheckCircle2, Clock } from "lucide-react";
+import { ArrowLeftRight, CheckCircle2, Clock, Leaf } from "lucide-react";
 
 export default function BeforeAfterSlider() {
   const [sliderPos, setSliderPos] = useState<number>(50);
@@ -28,7 +28,7 @@ export default function BeforeAfterSlider() {
               onClick={() => setViewMode("slider")}
               className={`classy-tab-pill ${viewMode === "slider" ? "active" : ""}`}
             >
-              <ArrowLeftRight size={13} />
+              <ArrowLeftRight size={13} strokeWidth={2.2} />
               <span>Interactive Split</span>
             </button>
             <button
@@ -103,7 +103,7 @@ export default function BeforeAfterSlider() {
                 style={{ left: `${sliderPos}%` }}
               >
                 <div className="classy-slider-knob">
-                  <ArrowLeftRight size={13} color="var(--liv-blue)" />
+                  <ArrowLeftRight size={13} strokeWidth={2.2} color="var(--liv-blue)" />
                 </div>
               </div>
             </div>
@@ -117,7 +117,7 @@ export default function BeforeAfterSlider() {
                 style={{ objectFit: "cover", filter: "grayscale(70%) contrast(90%) brightness(0.85)" }}
               />
               <div className="classy-canvas-tag tag-before">
-                <Clock size={12} color="#64748B" />
+                <Clock size={12} strokeWidth={2} color="#64748B" />
                 <span>BEFORE · Bare Concrete Shell (Day 0)</span>
               </div>
             </div>
@@ -131,7 +131,7 @@ export default function BeforeAfterSlider() {
                 style={{ objectFit: "cover" }}
               />
               <div className="classy-canvas-tag tag-after">
-                <CheckCircle2 size={12} color="var(--liv-pink)" />
+                <CheckCircle2 size={13} strokeWidth={2.2} color="var(--liv-pink)" />
                 <span>AFTER · Fully Decorated MVVR Residence (Day 43)</span>
               </div>
             </div>
@@ -150,7 +150,10 @@ export default function BeforeAfterSlider() {
           </div>
           <div className="classy-metric-item" style={{ borderColor: "var(--liv-green-border)", background: "var(--liv-green-soft)" }}>
             <span className="classy-metric-num" style={{ color: "var(--liv-green-dark)" }}>10 Years</span>
-            <span className="classy-metric-lbl" style={{ color: "var(--liv-green)" }}>🌿 Eco IS 710 Green Ply</span>
+            <span className="classy-metric-lbl" style={{ color: "var(--liv-green)", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 5 }}>
+              <Leaf size={12} strokeWidth={2.2} />
+              <span>Eco IS 710 Green Ply</span>
+            </span>
           </div>
           <div className="classy-metric-item">
             <span className="classy-metric-num">100%</span>

@@ -19,9 +19,9 @@ export default function AnnouncementBar() {
         zIndex: 50,
       }}
     >
-      <div style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "var(--liv-green-dark)", fontWeight: 700 }}>
-        <Leaf size={12} color="var(--liv-green)" />
-        <span>🌿 100% Eco-Certified Green BWP Materials</span>
+      <div style={{ display: "inline-flex", alignItems: "center", gap: 6, color: "var(--liv-green-dark)", fontWeight: 700 }}>
+        <Leaf size={13} strokeWidth={2.2} color="var(--liv-green)" />
+        <span>100% Eco-Certified Green BWP Materials</span>
       </div>
       <span style={{ color: "#CBD5E1" }}>·</span>
       <span style={{ fontWeight: 600, color: "#64748B" }}>Strict 45-Day Handover Guarantee across AP &amp; Telangana</span>

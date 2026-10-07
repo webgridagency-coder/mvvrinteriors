@@ -93,7 +93,7 @@ export default function LuxuryMarquee() {
                 color: "#1E293B",
               }}
             >
-              <Icon size={15} color={color} />
+              <Icon size={15} color={color} strokeWidth={2} />
               <span>{item.text}</span>
               <span
                 style={{

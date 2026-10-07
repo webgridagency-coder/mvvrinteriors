@@ -82,7 +82,7 @@ export default function GsapScrubText({
               display: "inline-block",
               marginRight: "0.26em",
               willChange: "opacity, transform",
-              color: highlighted ? "var(--gold)" : "inherit",
+              color: highlighted ? "var(--liv-pink)" : "inherit",
               fontWeight: highlighted ? 800 : undefined,
             }}
           >

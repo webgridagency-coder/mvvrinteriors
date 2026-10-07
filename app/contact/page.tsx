@@ -53,7 +53,7 @@ export default function ContactPage() {
               <span>Contact</span>
             </div>
             <div className="page-hero-badge">
-              <Sparkles size={14} />
+              <Sparkles size={14} strokeWidth={2} />
               <span>Free Consultation &amp; Site Review</span>
             </div>
             <GsapTextReveal
@@ -75,7 +75,7 @@ export default function ContactPage() {
           <div className="contact-grid">
             {/* Left Info Column */}
             <div className="contact-info-col">
-              <span className="page-hero-badge" style={{ color: "var(--charcoal)", borderColor: "var(--gold)" }}>
+              <span className="page-hero-badge" style={{ color: "var(--charcoal)", borderColor: "var(--liv-pink)" }}>
                 Get In Touch
               </span>
               <h2 className="contact-title">
@@ -89,7 +89,7 @@ export default function ContactPage() {
                 {/* Phone */}
                 <div className="contact-info-card">
                   <div className="contact-icon-box">
-                    <Phone size={20} />
+                    <Phone size={20} strokeWidth={1.8} />
                   </div>
                   <div>
                     <div className="contact-card-label">Direct Calling Number</div>
@@ -124,7 +124,7 @@ export default function ContactPage() {
                 {/* Studio Location */}
                 <div className="contact-info-card">
                   <div className="contact-icon-box">
-                    <MapPin size={20} />
+                    <MapPin size={20} strokeWidth={1.8} />
                   </div>
                   <div>
                     <div className="contact-card-label">Visakhapatnam Design Studio</div>
@@ -139,7 +139,7 @@ export default function ContactPage() {
                 {/* Email */}
                 <div className="contact-info-card">
                   <div className="contact-icon-box">
-                    <Mail size={20} />
+                    <Mail size={20} strokeWidth={1.8} />
                   </div>
                   <div>
                     <div className="contact-card-label">Official Email</div>
@@ -154,19 +154,19 @@ export default function ContactPage() {
 
               {/* Guarantees Box */}
               <div className="contact-guarantees-card">
-                <h4 style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--gold-light)" }}>
+                <h4 style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--liv-pink-light)" }}>
                   Our Standard Commitments
                 </h4>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13, color: "rgba(255,255,255,0.8)" }}>
-                  <CheckCircle2 size={16} color="var(--gold)" />
+                <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13, color: "rgba(255,255,255,0.9)" }}>
+                  <CheckCircle2 size={16} strokeWidth={2} color="var(--liv-pink-light)" />
                   <span>45-Day Handover Guarantee or Delay Compensation</span>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13, color: "rgba(255,255,255,0.8)" }}>
-                  <CheckCircle2 size={16} color="var(--gold)" />
+                <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13, color: "rgba(255,255,255,0.9)" }}>
+                  <CheckCircle2 size={16} strokeWidth={2} color="var(--liv-pink-light)" />
                   <span>10-Year Comprehensive Hardware &amp; Plywood Warranty</span>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13, color: "rgba(255,255,255,0.8)" }}>
-                  <CheckCircle2 size={16} color="var(--gold)" />
+                <div style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13, color: "rgba(255,255,255,0.9)" }}>
+                  <CheckCircle2 size={16} strokeWidth={2} color="var(--liv-pink-light)" />
                   <span>100% Vastu-Compliant 3D Floor Plan Layouts</span>
                 </div>
               </div>
@@ -176,8 +176,8 @@ export default function ContactPage() {
             <div className="contact-form-card">
               {submitted ? (
                 <div style={{ textAlign: "center", padding: "40px 20px" }}>
-                  <div style={{ width: 64, height: 64, borderRadius: "50%", background: "rgba(201,168,76,0.15)", color: "var(--gold-dark)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
-                    <CheckCircle2 size={36} />
+                  <div style={{ width: 64, height: 64, borderRadius: "50%", background: "var(--liv-pink-soft)", color: "var(--liv-pink)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
+                    <CheckCircle2 size={36} strokeWidth={2} />
                   </div>
                   <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.8rem", fontWeight: 700, color: "var(--charcoal)", marginBottom: 12 }}>
                     Consultation Request Received!
@@ -335,7 +335,7 @@ export default function ContactPage() {
                       style={{ padding: "14px 24px", fontSize: 14, width: "100%", justifyContent: "center" }}
                     >
                       <span>Request Free 3D Design Consultation</span>
-                      <Send size={15} />
+                      <Send size={15} strokeWidth={2} />
                     </button>
                   </GsapMagnet>
 

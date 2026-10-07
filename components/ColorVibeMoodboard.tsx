@@ -184,7 +184,7 @@ export default function ColorVibeMoodboard() {
               {/* Swatches */}
               <div className="classy-swatches-box">
                 <div className="classy-swatches-title">
-                  <SlidersHorizontal size={13} color="var(--liv-pink)" />
+                  <SlidersHorizontal size={14} strokeWidth={2} color="var(--liv-pink)" />
                   <span>Curated Color Palette:</span>
                 </div>
                 <div className="classy-swatches-list">
@@ -208,7 +208,7 @@ export default function ColorVibeMoodboard() {
               <div className="classy-features-list">
                 {current.elements.map((elem, idx) => (
                   <div key={idx} className="classy-feature-row">
-                    <CheckCircle2 size={14} color="var(--liv-blue)" />
+                    <CheckCircle2 size={15} strokeWidth={2} color="var(--liv-blue)" />
                     <span>{elem}</span>
                   </div>
                 ))}
@@ -224,7 +224,7 @@ export default function ColorVibeMoodboard() {
                 >
                   <WhatsAppIcon size={16} />
                   <span>Consult in This Aesthetic</span>
-                  <ArrowRight size={14} />
+                  <ArrowRight size={14} strokeWidth={2.2} />
                 </a>
               </div>
             </div>

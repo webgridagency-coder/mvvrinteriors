@@ -77,7 +77,7 @@ export default function LivspacePerks() {
               >
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
                   <div className="classy-perk-icon-wrap" style={{ marginBottom: 0 }}>
-                    <Icon size={22} />
+                    <Icon size={22} strokeWidth={1.8} />
                   </div>
                   <span style={{
                     fontSize: 10,
