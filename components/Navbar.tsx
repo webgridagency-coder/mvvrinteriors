@@ -4,9 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, ArrowRight, Menu, X, Sparkles, Flame } from "lucide-react";
+import { Phone, ArrowRight, Menu, X } from "lucide-react";
 import WhatsAppIcon from "./WhatsAppIcon";
-import AnnouncementBar from "./AnnouncementBar";
 
 export function MVVRLogo({ size = "md", dark = false }: { size?: "sm" | "md" | "lg"; dark?: boolean }) {
   const scales = { sm: 0.8, md: 1, lg: 1.25 };
@@ -46,125 +45,109 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "Home", href: "/" },
-    { label: "Explore Rooms", href: "/#explore-rooms", badge: "NEW" },
-    { label: "Color Vibe", href: "/#moodboard", badge: "VIBE" },
+    { label: "Rooms", href: "/#explore-rooms" },
+    { label: "Palettes", href: "/#moodboard" },
     { label: "Services", href: "/services" },
     { label: "Portfolio", href: "/portfolio" },
-    { label: "Cost Calculator", href: "/pricing", badge: "HOT" },
+    { label: "Cost Estimator", href: "/pricing" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
 
   return (
-    <>
-      <AnnouncementBar />
-      <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-        <div className="navbar-inner">
-          <Link href="/" aria-label="MVVR CON & INTERIO Home" onClick={() => setMobileOpen(false)}>
-            <MVVRLogo />
-          </Link>
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      <div className="navbar-inner">
+        <Link href="/" aria-label="MVVR CON & INTERIO Home" onClick={() => setMobileOpen(false)}>
+          <MVVRLogo />
+        </Link>
 
-          {/* Desktop Nav Links */}
-          <div className="nav-links">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`nav-link ${isActive ? "active" : ""}`}
-                >
-                  <span>{link.label}</span>
-                  {link.badge && (
-                    <span
-                      className={`nav-badge-pill badge-${link.badge.toLowerCase()}`}
-                    >
-                      {link.badge}
-                    </span>
-                  )}
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Desktop Actions */}
-          <div className="nav-actions">
-            <a
-              href="tel:+919391356077"
-              className="nav-phone"
-              aria-label="Call MVVR Interiors"
-            >
-              <span className="phone-pulse-dot" />
-              <Phone size={13} />
-              <span>93913 56077</span>
-            </a>
-            <Link href="/pricing" className="btn-primary-funky" id="nav-cta-btn">
-              <span>Free 3D Estimate</span>
-              <ArrowRight size={14} />
-            </Link>
-          </div>
-
-          {/* Mobile menu toggle */}
-          <button
-            className="mobile-toggle"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
-
-        {/* Mobile Drawer */}
-        {mobileOpen && (
-          <div className="mobile-menu open">
-            {navLinks.map((link) => (
+        {/* Desktop Nav Links */}
+        <div className="nav-links">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`mobile-nav-link ${pathname === link.href ? "active" : ""}`}
-                onClick={() => setMobileOpen(false)}
+                className={`nav-link ${isActive ? "active" : ""}`}
               >
-                <span>{link.label}</span>
-                {link.badge && (
-                  <span className={`nav-badge-pill badge-${link.badge.toLowerCase()}`}>
-                    {link.badge}
-                  </span>
-                )}
+                {link.label}
               </Link>
-            ))}
-            <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 10 }}>
-              <a
-                href="tel:+919391356077"
-                className="btn-outline"
-                style={{ justifyContent: "center", color: "#FFFFFF", borderColor: "rgba(255,255,255,0.2)" }}
-              >
-                <Phone size={16} />
-                <span>Call: 93913 56077</span>
-              </a>
-              <a
-                href="https://wa.me/919391356077?text=Hello%20MVVR%20CON%20%26%20INTERIO%2C%20I%20would%20like%20to%20inquire%20about%20interior%20design%20services."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-                style={{ justifyContent: "center", background: "#25D366", borderColor: "#25D366", color: "#FFF" }}
-              >
-                <WhatsAppIcon size={16} />
-                <span>WhatsApp Us Now</span>
-              </a>
-              <Link
-                href="/pricing"
-                className="btn-primary-funky"
-                style={{ justifyContent: "center", padding: "14px 20px" }}
-                onClick={() => setMobileOpen(false)}
-              >
-                <span>Instant Cost Calculator</span>
-                <ArrowRight size={16} />
-              </Link>
-            </div>
+            );
+          })}
+        </div>
+
+        {/* Desktop Actions */}
+        <div className="nav-actions">
+          <a
+            href="tel:+919391356077"
+            className="nav-phone"
+            aria-label="Call MVVR Interiors"
+          >
+            <Phone size={13} />
+            <span>93913 56077</span>
+          </a>
+          <Link href="/pricing" className="btn-primary" id="nav-cta-btn">
+            <span>Free 3D Estimate</span>
+            <ArrowRight size={13} />
+          </Link>
+        </div>
+
+        {/* Mobile menu toggle */}
+        <button
+          className="mobile-toggle"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+        >
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+
+      {/* Mobile Drawer */}
+      {mobileOpen && (
+        <div className="mobile-menu open">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`mobile-nav-link ${pathname === link.href ? "active" : ""}`}
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 10 }}>
+            <a
+              href="tel:+919391356077"
+              className="btn-outline"
+              style={{ justifyContent: "center", color: "var(--liv-blue)", borderColor: "var(--liv-blue-border)", background: "var(--liv-blue-soft)" }}
+            >
+              <Phone size={16} />
+              <span>Call: 93913 56077</span>
+            </a>
+            <a
+              href="https://wa.me/919391356077?text=Hello%20MVVR%20CON%20%26%20INTERIO%2C%20I%20would%20like%20to%20inquire%20about%20interior%20design%20services."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+              style={{ justifyContent: "center", background: "#25D366", borderColor: "#25D366", color: "#FFF" }}
+            >
+              <WhatsAppIcon size={16} />
+              <span>WhatsApp Us Now</span>
+            </a>
+            <Link
+              href="/pricing"
+              className="btn-primary"
+              style={{ justifyContent: "center", padding: "14px 20px" }}
+              onClick={() => setMobileOpen(false)}
+            >
+              <span>Instant Cost Calculator</span>
+              <ArrowRight size={16} />
+            </Link>
           </div>
-        )}
-      </nav>
-    </>
+        </div>
+      )}
+    </nav>
   );
 }

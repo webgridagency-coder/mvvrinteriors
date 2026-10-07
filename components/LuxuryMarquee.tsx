@@ -1,17 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sparkles, Shield, Clock, Compass, Award, Gem, Check, Flame } from "lucide-react";
+import { Sparkles, Shield, Clock, Compass, Award, Gem, Check } from "lucide-react";
 
 const MARQUEE_ITEMS = [
-  { icon: Clock, text: "45-Day Handover Guarantee", color: "#FF5436" },
-  { icon: Shield, text: "10-Year BWP Marine Warranty", color: "#10B981" },
-  { icon: Gem, text: "German Blum Soft-Close Hardware", color: "#3B82F6" },
-  { icon: Compass, text: "100% Vastu Shastra Aligned", color: "#F59E0B" },
-  { icon: Flame, text: "Free Modular Chimney & Hob", color: "#EC4899" },
-  { icon: Sparkles, text: "Makrana Marble & Italian Quartz", color: "#8B5CF6" },
-  { icon: Check, text: "Zero Hidden Subcontractor Fees", color: "#06B6D4" },
-  { icon: Award, text: "500+ Homes Across AP & TS", color: "#D4AF37" },
+  { icon: Clock, text: "45-Day Handover Guarantee" },
+  { icon: Shield, text: "10-Year BWP Marine Ply Warranty" },
+  { icon: Gem, text: "German Blum Soft-Close Hardware" },
+  { icon: Compass, text: "100% Vastu Shastra Aligned" },
+  { icon: Sparkles, text: "Italian Quartz & Makrana Marble" },
+  { icon: Check, text: "Zero Hidden Markups · Fixed Pricing" },
+  { icon: Award, text: "500+ Luxury Homes Delivered Across AP & TS" },
 ];
 
 export default function LuxuryMarquee() {
@@ -27,14 +26,15 @@ export default function LuxuryMarquee() {
       style={{
         width: "100%",
         overflow: "hidden",
-        background: "linear-gradient(90deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)",
-        borderTop: "1px solid rgba(255, 255, 255, 0.1)",
-        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+        background: "#FFFFFF",
+        borderTop: "1px solid #E2E8F0",
+        borderBottom: "1px solid #E2E8F0",
         padding: "16px 0",
         margin: "12px 0 36px",
         position: "relative",
         userSelect: "none",
         zIndex: 10,
+        boxShadow: "0 2px 10px rgba(15, 23, 42, 0.03)",
       }}
     >
       {/* Edge fade masks */}
@@ -45,7 +45,7 @@ export default function LuxuryMarquee() {
           left: 0,
           width: "120px",
           height: "100%",
-          background: "linear-gradient(90deg, #0F172A 0%, transparent 100%)",
+          background: "linear-gradient(90deg, #FFFFFF 0%, transparent 100%)",
           zIndex: 2,
           pointerEvents: "none",
         }}
@@ -57,7 +57,7 @@ export default function LuxuryMarquee() {
           right: 0,
           width: "120px",
           height: "100%",
-          background: "linear-gradient(270deg, #0F172A 0%, transparent 100%)",
+          background: "linear-gradient(270deg, #FFFFFF 0%, transparent 100%)",
           zIndex: 2,
           pointerEvents: "none",
         }}
@@ -74,6 +74,7 @@ export default function LuxuryMarquee() {
       >
         {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, idx) => {
           const Icon = item.icon;
+          const isEven = idx % 2 === 0;
           return (
             <div
               key={idx}
@@ -81,29 +82,15 @@ export default function LuxuryMarquee() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "10px",
-                padding: "0 24px",
-                fontSize: "12.5px",
+                padding: "0 28px",
+                fontSize: "12px",
                 fontWeight: 700,
-                letterSpacing: "0.06em",
+                letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: "#FFFFFF",
+                color: "#1E293B",
               }}
             >
-              <span
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "26px",
-                  height: "26px",
-                  borderRadius: "50%",
-                  background: `${item.color}25`,
-                  color: item.color,
-                  border: `1px solid ${item.color}60`,
-                }}
-              >
-                <Icon size={14} />
-              </span>
+              <Icon size={15} color={isEven ? "#E72E5A" : "#1B5CEB"} />
               <span>{item.text}</span>
               <span
                 style={{
@@ -111,7 +98,7 @@ export default function LuxuryMarquee() {
                   width: "5px",
                   height: "5px",
                   borderRadius: "50%",
-                  background: item.color,
+                  background: isEven ? "#E72E5A" : "#1B5CEB",
                   marginLeft: "18px",
                   opacity: 0.6,
                 }}

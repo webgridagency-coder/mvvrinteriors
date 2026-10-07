@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Sparkles, Palette, ArrowRight, CheckCircle2, SlidersHorizontal } from "lucide-react";
+import { ArrowRight, CheckCircle2, SlidersHorizontal, Sparkles } from "lucide-react";
 import WhatsAppIcon from "./WhatsAppIcon";
 
 interface VibeTheme {
@@ -18,165 +18,160 @@ interface VibeTheme {
 
 const VIBES: VibeTheme[] = [
   {
-    id: "funky-pop",
-    name: "Funky Memphis & Pop Eclectic",
-    badge: "🔥 Client Favorite · High Energy",
-    description: "Bold color-blocked walls, playful mustard velvet seating, geometric statement rugs, and modern art niches designed for vibrant modern living.",
+    id: "blush-nordic",
+    name: "Blush Rose & Nordic Sky",
+    badge: "Livspace Signature",
+    description: "Iconic Livspace blush crimson paired with airy Scandinavian sky blue, natural light oak louvers, and warm ambient backlighting for joyful living.",
     image: "/hero-funky-living.jpg",
-    roomTag: "Vibrant Living & Entertainment Lounge",
+    roomTag: "Living & Entertainment Lounge",
     palette: [
-      { name: "Terracotta Coral", hex: "#FF5436", role: "Accent Feature Wall" },
-      { name: "Canary Mustard", hex: "#EAB308", role: "Velvet Lounge Sofa" },
-      { name: "Emerald Plant", hex: "#10B981", role: "Indoor Botanical Nook" },
-      { name: "Electric Cobalt", hex: "#2563EB", role: "Geometric Rug Accent" },
-      { name: "Fluted Oak", hex: "#D4A373", role: "Acoustic Wood Louver" },
+      { name: "Livspace Pink", hex: "#E72E5A", role: "Primary Accent Wall" },
+      { name: "Nordic Sky Blue", hex: "#1B5CEB", role: "Lounge Armchair & Pillows" },
+      { name: "Pure Cotton White", hex: "#FFFFFF", role: "Base Canvas & Ceiling" },
+      { name: "Natural Ash Oak", hex: "#D4B996", role: "Acoustic Wall Fluting" },
+      { name: "Soft Blush Rose", hex: "#FFF0F3", role: "Pendant Light Accents" },
     ],
     elements: [
-      "Color-blocked feature walls with 3000K warm downlights",
-      "Custom velvet upholstery in punchy mustard & emerald",
-      "Archway doorways with concealed LED strip trims",
-      "Geometric rugs with multi-color Livspace flair",
+      "Color-blocked feature surfaces with signature Livspace crimson accents",
+      "Custom velvet lounge upholstery in Nordic electric blue",
+      "Concealed 3000K soft warm LED cove lighting profiles",
+      "Bespoke geometric area rugs with balanced pink-and-blue harmony",
     ],
   },
   {
-    id: "sage-kitchen",
-    name: "Fresh Sage & Mint Modular Luxe",
-    badge: "🌿 Most Requested Modular Style",
-    description: "Serene pastel mint cabinetry paired with warm brass hardware, quartz waterfall breakfast islands, and anti-scratch acrylic finishes.",
+    id: "ocean-coastal",
+    name: "Ocean Cobalt & Coastal White",
+    badge: "Modern Minimalist",
+    description: "Deep oceanic cobalt cabinetry paired with pure white quartz waterfall counters, knurled chrome handles, and anti-scratch acrylic finishes.",
     image: "/kitchen-island.jpg",
-    roomTag: "Modular Kitchen & Breakfast Bar",
+    roomTag: "Modular Kitchen Architecture",
     palette: [
-      { name: "Sage Mint", hex: "#10B981", role: "Acrylic Base Shutters" },
-      { name: "Onyx Quartz", hex: "#1E293B", role: "Waterfall Countertop" },
-      { name: "Champagne Brass", hex: "#D4AF37", role: "Knurled Pull Handles" },
-      { name: "Warm Ivory", hex: "#FFFBEB", role: "Backlit Overhead Cabinets" },
-      { name: "Smoked Glass", hex: "#64748B", role: "Blum Fluted Lift-Up" },
+      { name: "Ocean Cobalt", hex: "#1B5CEB", role: "Base Cabinet Shutters" },
+      { name: "Crisp Pure White", hex: "#FFFFFF", role: "Waterfall Countertop" },
+      { name: "Rose Quartz Tint", hex: "#FF4D79", role: "Backsplash LED Profile" },
+      { name: "Ice Blue Tint", hex: "#EEF4FF", role: "Overhead Cabinets" },
+      { name: "Smoked Fluted Glass", hex: "#64748B", role: "Blum Lift-Up Doors" },
     ],
     elements: [
-      "IS 710 Boiling Water Proof marine ply carcass",
-      "German Blum soft-close Aventos lift-up cabinets",
-      "Integrated pull-out pantry with wire baskets & spice racks",
-      "Quartz countertop with stain & heat resistant guarantee",
+      "IS 710 Boiling Water Proof marine ply framework with anti-termite sealant",
+      "German Blum soft-close Aventos lift-up mechanisms",
+      "Concealed pantry larder with chrome wire basket organizers",
+      "Stain-proof, heat-resistant pure white quartz island countertop",
     ],
   },
   {
-    id: "royal-bedroom",
-    name: "Royal Indigo & Blush Master Suite",
-    badge: "👑 5-Star Boutique Hotel Comfort",
-    description: "Deep cobalt feature wall, plush blush pink textiles, floor-to-ceiling tinted profile glass sliding wardrobes, and acoustic fluted headboards.",
+    id: "coral-slate",
+    name: "Coral Charm & Slate Modern",
+    badge: "Contemporary Suite",
+    description: "Vibrant coral pink feature accents blended with slate navy wall paneling, tinted glass sliding wardrobes, and sensor profile illumination.",
     image: "/hero-bedroom.jpg",
-    roomTag: "Master Bedroom & Walk-in Dressing",
+    roomTag: "Master Bedroom & Closets",
     palette: [
-      { name: "Royal Cobalt", hex: "#1D4ED8", role: "Fluted Headboard Nook" },
-      { name: "Blush Mauve", hex: "#F472B6", role: "Plush Bed Linen & Cushions" },
-      { name: "Bronze Tint Glass", hex: "#78350F", role: "Sliding Wardrobe Shutters" },
-      { name: "Brushed Gold", hex: "#CA8A04", role: "Sensor LED Profile Rods" },
-      { name: "Warm Alabaster", hex: "#F8FAFC", role: "Acoustic Drop Ceiling" },
+      { name: "Coral Crimson", hex: "#E72E5A", role: "Velvet Bed Textiles" },
+      { name: "Slate Navy", hex: "#0F172A", role: "Headboard Accent Wall" },
+      { name: "Electric Blue Rod", hex: "#3B82F6", role: "Sensor LED Wardrobe" },
+      { name: "Carrara Marble", hex: "#F8FAFC", role: "Floating Nightstand" },
+      { name: "Soft Pink Glow", hex: "#FFF0F3", role: "Perimeter False Ceiling" },
     ],
     elements: [
-      "Floor-to-ceiling sliding wardrobe with sensor LED lighting",
+      "Floor-to-ceiling profile sliding wardrobe with sensor lighting",
       "Padded acoustic headboard wall spanning queen/king dimensions",
-      "Floating bedside consoles with concealed wireless charging",
-      "Indirect perimeter cove lighting with mood dimming",
+      "Floating bedside consoles with integrated wireless phone charger",
+      "Indirect perimeter cove lighting with mood dimming controls",
     ],
   },
   {
     id: "vastu-mandir",
-    name: "Sacred Saffron & Makrana Sanctum",
-    badge: "🪔 100% Vastu Shastra Aligned",
-    description: "Makrana white marble platform, hand-carved teakwood pillars, warm marigold illumination, and backlit Om & Gayatri mantra CNC screens.",
+    name: "Sacred Makrana & Saffron Sanctum",
+    badge: "100% Vastu Aligned",
+    description: "Makrana white marble platform, hand-carved teakwood pillars, warm illumination, and backlit Om & Gayatri mantra CNC screens in North-East Ishanya zone.",
     image: "/pooja-mandir.jpg",
-    roomTag: "Ishanya (North-East) Vastu Pooja Room",
+    roomTag: "Ishanya (North-East) Vastu Sanctum",
     palette: [
-      { name: "Makrana Marble", hex: "#FFFFFF", role: "Sacred Sanctum Base" },
-      { name: "Radiant Marigold", hex: "#D97706", role: "Backlit Glow & Bells" },
-      { name: "Burnt Teak", hex: "#78350F", role: "Handcrafted Jali Screen" },
-      { name: "Temple Brass", hex: "#CA8A04", role: "Hanging Bells & Diyas" },
-      { name: "Sandal Cream", hex: "#FEF3C7", role: "Stone Texture Wall" },
+      { name: "Makrana White", hex: "#F8FAFC", role: "Marble Platform & Idol" },
+      { name: "Rose Gold Brass", hex: "#E72E5A", role: "Backlit Bell Accents" },
+      { name: "Royal Sapphire", hex: "#1B5CEB", role: "Velvet Puja Asana" },
+      { name: "Seasoned Teakwood", hex: "#8B5A2B", role: "Carved Mandir Pillars" },
+      { name: "Golden Aura 3000K", hex: "#F59E0B", role: "Concealed Sanctum LED" },
     ],
     elements: [
-      "Strict North-East orientation aligned for peace and prosperity",
-      "Backlit CNC laser cut panels with custom spiritual motifs",
-      "Solid seasoned teakwood drawer units for pooja samagri",
-      "Integrated brass bell hanging hooks with brass-chain suspension",
+      "100% Vastu Shastra aligned with exact Ishanya (North-East) placement",
+      "Pristine Makrana white marble altar platform with brass inlays",
+      "Precision laser CNC cut backlit Gayatri Mantra decorative screen",
+      "Integrated pull-out Prasad preparation trays and brass diya holders",
     ],
   },
 ];
 
 export default function ColorVibeMoodboard() {
-  const [selectedVibe, setSelectedVibe] = useState<string>("funky-pop");
+  const [selectedVibe, setSelectedVibe] = useState<string>("blush-nordic");
   const current = VIBES.find((v) => v.id === selectedVibe) || VIBES[0];
 
   return (
-    <section className="color-vibe-section" id="moodboard">
+    <section className="classy-vibe-section" id="moodboard">
       <div className="container">
-        <div className="color-vibe-header">
-          <div className="funky-pill-tag" style={{ background: "#EFF6FF", borderColor: "#BFDBFE", color: "#1D4ED8" }}>
-            <Palette size={14} />
-            <span>INTERACTIVE PALETTE EXPLORER</span>
-          </div>
-          <h2 className="color-vibe-title">
-            Pick Your Vibe &amp; <span className="text-gradient-funky">Color Mood</span>
+        <div className="classy-section-header">
+          <span className="classy-section-badge">Material &amp; Color Direction</span>
+          <h2 className="classy-section-title">
+            Architectural Palettes &amp; <span className="classy-gold-text">Material Moods</span>
           </h2>
-          <p className="color-vibe-desc">
-            Move beyond boring beige. Tap through 4 curated signature aesthetics created by MVVR architects to discover the perfect color story for your lifestyle.
+          <p className="classy-section-desc">
+            Move beyond generic monotone palettes. Explore curated architectural directions crafted to bring warmth, texture, and character into your home.
           </p>
 
-          {/* Vibe Selection Tabs */}
-          <div className="vibe-tabs-row">
+          <div className="classy-tabs-row">
             {VIBES.map((v) => (
               <button
                 key={v.id}
                 onClick={() => setSelectedVibe(v.id)}
-                className={`vibe-tab-chip ${selectedVibe === v.id ? "active" : ""}`}
+                className={`classy-tab-pill ${selectedVibe === v.id ? "active" : ""}`}
               >
-                <span>{v.name}</span>
+                {v.name}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Dynamic Vibe Showcase Container */}
-        <div className="vibe-showcase-card">
-          <div className="vibe-showcase-grid">
-            {/* Left: Room Visual */}
-            <div className="vibe-image-col">
-              <div className="vibe-image-wrap">
+        <div className="classy-vibe-frame">
+          <div className="classy-vibe-grid">
+            {/* Visual Column */}
+            <div className="classy-vibe-media">
+              <div className="classy-vibe-img-wrap">
                 <Image
                   src={current.image}
                   alt={current.name}
                   fill
                   sizes="(max-width: 992px) 100vw, 50vw"
-                  className="vibe-showcase-img"
+                  className="classy-vibe-img"
                   style={{ objectFit: "cover" }}
                 />
-                <div className="vibe-image-tag">
+                <div className="classy-vibe-room-tag">
                   <span>{current.roomTag}</span>
                 </div>
               </div>
             </div>
 
-            {/* Right: Palette & Details */}
-            <div className="vibe-details-col">
-              <span className="vibe-badge-pill">{current.badge}</span>
-              <h3 className="vibe-selected-name">{current.name}</h3>
-              <p className="vibe-selected-desc">{current.description}</p>
+            {/* Spec Column */}
+            <div className="classy-vibe-info">
+              <span className="classy-vibe-badge">{current.badge}</span>
+              <h3 className="classy-vibe-heading">{current.name}</h3>
+              <p className="classy-vibe-copy">{current.description}</p>
 
-              {/* Color Swatches Grid */}
-              <div className="vibe-palette-block">
-                <div className="vibe-palette-label">
-                  <SlidersHorizontal size={13} />
-                  <span>Curated Color Story ({current.palette.length} Shades):</span>
+              {/* Swatches */}
+              <div className="classy-swatches-box">
+                <div className="classy-swatches-title">
+                  <SlidersHorizontal size={13} color="var(--liv-pink)" />
+                  <span>Curated Color Palette:</span>
                 </div>
-                <div className="vibe-swatches-grid">
+                <div className="classy-swatches-list">
                   {current.palette.map((swatch, idx) => (
-                    <div key={idx} className="vibe-swatch-item">
+                    <div key={idx} className="classy-swatch-item">
                       <div
-                        className="vibe-swatch-circle"
+                        className="classy-swatch-circle"
                         style={{ background: swatch.hex }}
                         title={`${swatch.name} (${swatch.hex})`}
                       />
-                      <div className="vibe-swatch-info">
+                      <div className="classy-swatch-labels">
                         <span className="swatch-name">{swatch.name}</span>
                         <span className="swatch-role">{swatch.role}</span>
                       </div>
@@ -185,26 +180,26 @@ export default function ColorVibeMoodboard() {
                 </div>
               </div>
 
-              {/* Key Architectural Elements */}
-              <div className="vibe-elements-list">
+              {/* Architectural features */}
+              <div className="classy-features-list">
                 {current.elements.map((elem, idx) => (
-                  <div key={idx} className="vibe-element-item">
-                    <CheckCircle2 size={15} color="#10B981" />
+                  <div key={idx} className="classy-feature-row">
+                    <CheckCircle2 size={14} color="var(--liv-blue)" />
                     <span>{elem}</span>
                   </div>
                 ))}
               </div>
 
-              {/* CTA Action */}
-              <div className="vibe-actions">
+              <div className="classy-vibe-cta">
                 <a
-                  href={`https://wa.me/919391356077?text=Hello%20MVVR%2C%20I%20love%20the%20${encodeURIComponent(current.name)}%20color%20palette.%20Can%20we%20design%20my%20home%20with%20this%20vibe%3F`}
+                  href={`https://wa.me/919391356077?text=Hello%20MVVR%2C%20I%20am%20interested%20in%20the%20${encodeURIComponent(current.name)}%20palette%20for%20my%20home.%20Can%20we%20schedule%20a%20consultation%3F`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-vibe-quote"
+                  className="btn-primary"
+                  style={{ padding: "14px 28px" }}
                 >
                   <WhatsAppIcon size={16} />
-                  <span>Design My Home In This Palette</span>
+                  <span>Consult in This Aesthetic</span>
                   <ArrowRight size={14} />
                 </a>
               </div>

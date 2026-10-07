@@ -123,7 +123,6 @@ export default function HomePage() {
   const heroDescRef = useRef<HTMLParagraphElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
-  const guaranteesRef = useRef<HTMLDivElement>(null);
   const testimonialsRef = useRef<HTMLDivElement>(null);
 
   // Auto advance hero slider
@@ -296,27 +295,6 @@ export default function HomePage() {
       });
     }
 
-    // Guarantees stagger
-    if (guaranteesRef.current) {
-      gsap.fromTo(
-        guaranteesRef.current.querySelectorAll(".guarantee-card"),
-        { y: 45, opacity: 0, scale: 0.95 },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.75,
-          stagger: 0.1,
-          ease: "back.out(1.4)",
-          scrollTrigger: {
-            trigger: guaranteesRef.current,
-            start: "top 80%",
-            once: true,
-          },
-        }
-      );
-    }
-
     // Testimonials marquee reveal
     if (testimonialsRef.current) {
       gsap.fromTo(
@@ -409,29 +387,16 @@ export default function HomePage() {
             </p>
             <div className="hero-editorial-actions">
               <GsapMagnet strength={0.35}>
-                <Link href="/pricing" className="hero-btn-pill-white hero-cta-pill" id="hero-cta-quote" style={{ background: "linear-gradient(135deg, #FF5436 0%, #FF7A45 100%)", color: "#FFFFFF", border: "none" }}>
-                  <span>Instant Cost Calculator</span>
+                <Link href="/contact" className="hero-btn-pill-white hero-cta-pill" id="hero-cta-quote">
+                  <span>Book Free 3D Consultation</span>
                   <ArrowRight size={15} />
                 </Link>
               </GsapMagnet>
               <GsapMagnet strength={0.35}>
                 <a href="#explore-rooms" className="hero-btn-pill-glass hero-cta-pill" id="hero-cta-calc">
-                  <span>Explore Rooms (From ₹65k)</span>
+                  <span>Explore Spatial Concepts</span>
                 </a>
               </GsapMagnet>
-            </div>
-
-            {/* Livspace Trust Badges */}
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 18 }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(255,84,54,0.28)", border: "1px solid rgba(255,84,54,0.5)", color: "#FFA085", fontSize: 11, fontWeight: 700, padding: "4px 12px", borderRadius: 999 }}>
-                ⚡ Flat 45-Day Move-In
-              </span>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(16,185,129,0.28)", border: "1px solid rgba(16,185,129,0.5)", color: "#6EE7B7", fontSize: 11, fontWeight: 700, padding: "4px 12px", borderRadius: 999 }}>
-                🛡️ 10-Yr BWP Warranty
-              </span>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(37,99,235,0.28)", border: "1px solid rgba(37,99,235,0.5)", color: "#93C5FD", fontSize: 11, fontWeight: 700, padding: "4px 12px", borderRadius: 999 }}>
-                💳 No-Cost EMI ₹12,999/mo
-              </span>
             </div>
           </div>
 
@@ -692,7 +657,7 @@ export default function HomePage() {
       {/* Featured Projects Highlight with Parallax Images */}
       <section
         ref={projectsRef}
-        style={{ padding: "90px 0", background: "var(--charcoal)", color: "var(--white)" }}
+        style={{ padding: "90px 0", background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)", color: "var(--charcoal)" }}
       >
         <div className="container">
           <div
@@ -706,7 +671,9 @@ export default function HomePage() {
             }}
           >
             <div>
-              <span className="page-hero-badge">Realized Masterpieces</span>
+              <span className="page-hero-badge" style={{ color: "var(--liv-pink)", borderColor: "var(--liv-pink-border)", background: "var(--liv-pink-soft)" }}>
+                Realized Masterpieces
+              </span>
               <GsapTextReveal
                 text="Recent Delivered Projects"
                 as="h2"
@@ -714,13 +681,13 @@ export default function HomePage() {
                   fontFamily: "var(--font-display)",
                   fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
                   fontWeight: 700,
-                  color: "var(--white)",
+                  color: "#0F172A",
                   lineHeight: 1.2,
                 }}
               />
               <p
                 style={{
-                  color: "rgba(255,255,255,0.6)",
+                  color: "#64748B",
                   fontSize: "0.95rem",
                   marginTop: 8,
                   maxWidth: 600,
@@ -766,10 +733,11 @@ export default function HomePage() {
                 className="project-card interactive-card"
                 data-cursor="explore"
                 style={{
-                  background: "#222222",
+                  background: "#FFFFFF",
                   borderRadius: 16,
                   overflow: "hidden",
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  border: "1px solid #E2E8F0",
+                  boxShadow: "0 10px 30px rgba(15, 23, 42, 0.05)",
                 }}
               >
                 <div
@@ -789,9 +757,9 @@ export default function HomePage() {
                       position: "absolute",
                       bottom: 12,
                       left: 12,
-                      background: "rgba(0,0,0,0.75)",
-                      backdropFilter: "blur(4px)",
-                      color: "var(--white)",
+                      background: "rgba(15, 23, 42, 0.8)",
+                      backdropFilter: "blur(6px)",
+                      color: "#FFFFFF",
                       fontSize: 11,
                       padding: "4px 10px",
                       borderRadius: 6,
@@ -801,7 +769,7 @@ export default function HomePage() {
                       zIndex: 3,
                     }}
                   >
-                    <MapPin size={12} color="var(--gold)" />
+                    <MapPin size={12} color="var(--liv-pink)" />
                     <span>{proj.loc}</span>
                   </div>
                 </div>
@@ -809,7 +777,7 @@ export default function HomePage() {
                   <span
                     style={{
                       fontSize: 11,
-                      color: "var(--gold-light)",
+                      color: "var(--liv-pink)",
                       fontWeight: 700,
                       letterSpacing: "0.08em",
                       textTransform: "uppercase",
@@ -822,7 +790,7 @@ export default function HomePage() {
                       fontFamily: "var(--font-display)",
                       fontSize: "1.25rem",
                       fontWeight: 700,
-                      color: "var(--white)",
+                      color: "#0F172A",
                       marginTop: 6,
                       marginBottom: 14,
                     }}
@@ -833,7 +801,8 @@ export default function HomePage() {
                     href="/portfolio"
                     style={{
                       fontSize: 12,
-                      color: "rgba(255,255,255,0.7)",
+                      color: "var(--liv-blue)",
+                      fontWeight: 600,
                       textDecoration: "none",
                       display: "flex",
                       alignItems: "center",
@@ -841,7 +810,7 @@ export default function HomePage() {
                     }}
                   >
                     <span>Explore project specifications</span>
-                    <ArrowRight size={12} color="var(--gold)" />
+                    <ArrowRight size={12} color="var(--liv-blue)" />
                   </Link>
                 </div>
               </div>
@@ -851,115 +820,9 @@ export default function HomePage() {
       </section>
 
       {/* Interactive Interior Price Calculator */}
-      <section style={{ padding: "100px 0", background: "#151515" }} id="calculator">
+      <section style={{ padding: "100px 0", background: "linear-gradient(180deg, #F8FAFC 0%, #EEF4FF 50%, #F8FAFC 100%)" }} id="calculator">
         <div className="container">
           <InteriorPriceCalculator />
-        </div>
-      </section>
-
-      {/* The 4 Guarantees */}
-      <section
-        ref={guaranteesRef}
-        style={{ padding: "90px 0", background: "var(--cream)" }}
-      >
-        <div className="container">
-          <div style={{ textAlign: "center", maxWidth: 700, margin: "0 auto 50px" }}>
-            <span
-              className="page-hero-badge"
-              style={{ color: "var(--charcoal)", borderColor: "var(--gold)" }}
-            >
-              The MVVR Promise
-            </span>
-            <GsapTextReveal
-              text="Why Homeowners Choose MVVR CON & INTERIO"
-              as="h2"
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(2rem, 3.5vw, 2.7rem)",
-                fontWeight: 700,
-                color: "var(--charcoal)",
-                marginBottom: 14,
-              }}
-            />
-            <p style={{ color: "var(--charcoal-light)", fontSize: "0.95rem", lineHeight: 1.6 }}>
-              We eliminate traditional interior headaches with guaranteed timelines, certified BWP marine ply, and end-to-end architect supervision.
-            </p>
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: 24,
-            }}
-          >
-            {[
-              {
-                icon: Clock,
-                title: "45-Day Handover Guarantee",
-                desc: "No endless months of dust and contractor excuses. We adhere strictly to a 45-day turnkey delivery calendar.",
-              },
-              {
-                icon: Shield,
-                title: "10-Year Material Warranty",
-                desc: "Every sheet of plywood is certified IS 710 Boiling Water Proof, paired with genuine international hardware.",
-              },
-              {
-                icon: Flame,
-                title: "100% Vastu Shastra Aligned",
-                desc: "Every zone, kitchen burner, master bed orientation, and prayer space is aligned for energy and family prosperity.",
-              },
-              {
-                icon: TrendingUp,
-                title: "Transparent Fixed Pricing",
-                desc: "Detailed itemized bills with no unexpected surprises or subcontractor markups.",
-              },
-            ].map((p, i) => {
-              const Icon = p.icon;
-              return (
-                <div
-                  key={i}
-                  className="guarantee-card interactive-card"
-                  style={{
-                    background: "var(--white)",
-                    borderRadius: 16,
-                    padding: 30,
-                    border: "1px solid rgba(0,0,0,0.06)",
-                    boxShadow: "0 6px 20px rgba(0,0,0,0.04)",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: 48,
-                      height: 48,
-                      borderRadius: 12,
-                      background: "rgba(201,168,76,0.15)",
-                      color: "var(--gold-dark)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      marginBottom: 16,
-                    }}
-                  >
-                    <Icon size={24} />
-                  </div>
-                  <h3
-                    style={{
-                      fontSize: "1.15rem",
-                      fontWeight: 700,
-                      color: "var(--charcoal)",
-                      marginBottom: 8,
-                    }}
-                  >
-                    {p.title}
-                  </h3>
-                  <p style={{ fontSize: "0.875rem", color: "var(--charcoal-light)", lineHeight: 1.55 }}>
-                    {p.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </section>
 
@@ -972,7 +835,7 @@ export default function HomePage() {
           <div style={{ textAlign: "center", maxWidth: 680, margin: "0 auto 36px" }}>
             <span
               className="page-hero-badge"
-              style={{ color: "var(--charcoal)", borderColor: "var(--gold)" }}
+              style={{ color: "var(--liv-pink)", borderColor: "var(--liv-pink-border)", background: "var(--liv-pink-soft)" }}
             >
               Client Stories &amp; Accolades
             </span>
@@ -1000,14 +863,14 @@ export default function HomePage() {
       <section
         style={{
           padding: "100px 0",
-          background: "linear-gradient(145deg, #1C1C1C 0%, #0F0F0F 100%)",
-          color: "var(--white)",
+          background: "linear-gradient(135deg, #E72E5A 0%, #7C3AED 50%, #1B5CEB 100%)",
+          color: "#FFFFFF",
           textAlign: "center",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {/* Ambient golden glow orb */}
+        {/* Ambient glow orb */}
         <div
           style={{
             position: "absolute",
@@ -1016,14 +879,24 @@ export default function HomePage() {
             transform: "translate(-50%, -50%)",
             width: "600px",
             height: "400px",
-            background: "radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)",
             pointerEvents: "none",
             zIndex: 1,
           }}
         />
 
         <div className="container" style={{ maxWidth: 820, position: "relative", zIndex: 2 }}>
-          <span className="page-hero-badge">Start Your Interior Journey</span>
+          <span
+            className="page-hero-badge"
+            style={{
+              color: "#FFFFFF",
+              borderColor: "rgba(255,255,255,0.4)",
+              background: "rgba(255,255,255,0.18)",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            Start Your Interior Journey
+          </span>
           <GsapTextReveal
             text="Let's Design Your Home Together"
             as="h2"
@@ -1031,7 +904,7 @@ export default function HomePage() {
               fontFamily: "var(--font-display)",
               fontSize: "clamp(2.2rem, 4vw, 3.4rem)",
               fontWeight: 700,
-              color: "var(--white)",
+              color: "#FFFFFF",
               marginBottom: 16,
               lineHeight: 1.2,
             }}
@@ -1039,7 +912,7 @@ export default function HomePage() {
           <p
             style={{
               fontSize: "1.05rem",
-              color: "rgba(255,255,255,0.72)",
+              color: "rgba(255,255,255,0.92)",
               marginBottom: 38,
               lineHeight: 1.6,
             }}
@@ -1057,8 +930,20 @@ export default function HomePage() {
             <GsapMagnet strength={0.4}>
               <Link
                 href="/contact"
-                className="btn-primary"
-                style={{ padding: "16px 32px", fontSize: 15 }}
+                style={{
+                  padding: "16px 32px",
+                  fontSize: 15,
+                  background: "#FFFFFF",
+                  color: "var(--liv-pink)",
+                  fontWeight: 700,
+                  borderRadius: 999,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 10,
+                  textDecoration: "none",
+                  boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+                  transition: "all var(--transition-fast)",
+                }}
               >
                 <span>Book Free Site Visit &amp; 3D Plan</span>
                 <ArrowRight size={16} />
@@ -1070,7 +955,14 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp-quote"
-                style={{ padding: "16px 28px", fontSize: 15 }}
+                style={{
+                  padding: "16px 28px",
+                  fontSize: 15,
+                  background: "rgba(255,255,255,0.2)",
+                  borderColor: "rgba(255,255,255,0.4)",
+                  color: "#FFFFFF",
+                  backdropFilter: "blur(10px)",
+                }}
               >
                 <WhatsAppIcon size={18} />
                 <span>WhatsApp Us (93913 56077)</span>

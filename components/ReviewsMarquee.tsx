@@ -12,7 +12,6 @@ export interface ReviewItem {
   rating: number;
   badge: string;
   completion: string;
-  accent: string;
 }
 
 const REVIEWS_DATA: ReviewItem[] = [
@@ -26,7 +25,6 @@ const REVIEWS_DATA: ReviewItem[] = [
     rating: 5,
     badge: "Verified Homeowner",
     completion: "Handed over in 43 Days",
-    accent: "#FF5436",
   },
   {
     name: "V. R. Murthy",
@@ -38,7 +36,6 @@ const REVIEWS_DATA: ReviewItem[] = [
     rating: 5,
     badge: "Verified Homeowner",
     completion: "Turnkey Architecture",
-    accent: "#10B981",
   },
   {
     name: "Ananya & Rajesh Reddy",
@@ -50,7 +47,6 @@ const REVIEWS_DATA: ReviewItem[] = [
     rating: 5,
     badge: "Verified Homeowner",
     completion: "100% Vastu Aligned",
-    accent: "#F59E0B",
   },
   {
     name: "Capt. S. B. Varma",
@@ -62,19 +58,17 @@ const REVIEWS_DATA: ReviewItem[] = [
     rating: 5,
     badge: "Verified Homeowner",
     completion: "Full Home Turnkey",
-    accent: "#3B82F6",
   },
   {
     name: "Deepa & Sumanth Chowdary",
     initials: "DC",
     location: "Madhapur, Hyderabad",
-    project: "Funky Eclectic & Modern Flat",
+    project: "Eclectic Contemporary Flat",
     review:
       "From the micro-cement texture accents to concealed LED coves, MVVR transformed our bare shell into a serene sanctuary. Their site engineers were attentive daily.",
     rating: 5,
     badge: "Verified Homeowner",
     completion: "Handed over on Schedule",
-    accent: "#8B5CF6",
   },
   {
     name: "Harish & Radhika Nambiar",
@@ -86,7 +80,6 @@ const REVIEWS_DATA: ReviewItem[] = [
     rating: 5,
     badge: "Verified Homeowner",
     completion: "10-Year BWP Warranty",
-    accent: "#EC4899",
   },
   {
     name: "Dr. Madhavi Latha",
@@ -98,7 +91,6 @@ const REVIEWS_DATA: ReviewItem[] = [
     rating: 5,
     badge: "Verified Homeowner",
     completion: "Architect-Supervised",
-    accent: "#06B6D4",
   },
 ];
 
@@ -115,74 +107,49 @@ export default function ReviewsMarquee() {
       onTouchStart={() => setIsPaused(true)}
       onTouchEnd={() => setIsPaused(false)}
     >
-      {/* Edge gradient masks for smooth luxury fade */}
       <div className="reviews-marquee-fade left" aria-hidden="true" />
       <div className="reviews-marquee-fade right" aria-hidden="true" />
 
-      {/* Marquee Track */}
       <div
         className={`reviews-marquee-track ${isPaused ? "marquee-paused" : ""}`}
       >
         {marqueeItems.map((item, index) => (
           <div
             key={`${item.name}-${index}`}
-            className="review-marquee-card-funky"
-            style={{
-              borderTop: `3px solid ${item.accent}`,
-            }}
+            className="review-marquee-card"
           >
-            {/* Header: Avatar, Name, Verified Badge */}
             <div className="review-card-header">
-              <div
-                className="review-card-avatar"
-                style={{
-                  background: item.accent,
-                  color: "#FFFFFF",
-                  fontWeight: 800,
-                }}
-              >
-                {item.initials}
-              </div>
+              <div className="review-card-avatar">{item.initials}</div>
               <div className="review-card-user-info">
                 <div className="review-card-name-row">
                   <h4 className="review-card-name">{item.name}</h4>
-                  <span className="review-card-verified-pill" style={{ color: "#10B981" }}>
-                    <CheckCircle2 size={12} />
+                  <span className="review-card-verified-pill">
+                    <CheckCircle2 size={11} className="verified-icon" />
                     <span>Verified</span>
                   </span>
                 </div>
                 <div className="review-card-location">
-                  <MapPin size={11} color={item.accent} />
+                  <MapPin size={11} />
                   <span>{item.location}</span>
                 </div>
               </div>
             </div>
 
-            {/* Rating Stars & Project Type */}
             <div className="review-card-meta-row">
               <div className="review-card-stars">
                 {[...Array(item.rating)].map((_, i) => (
                   <Star key={i} size={14} fill="#F59E0B" color="#F59E0B" />
                 ))}
               </div>
-              <span
-                className="review-card-completion-tag"
-                style={{
-                  background: `${item.accent}15`,
-                  color: item.accent,
-                  borderColor: `${item.accent}40`,
-                }}
-              >
+              <span className="review-card-completion-tag">
                 {item.completion}
               </span>
             </div>
 
-            {/* Project Title */}
             <div className="review-card-project">{item.project}</div>
 
-            {/* Review Quote Body */}
             <div className="review-card-body">
-              <Quote size={18} style={{ color: item.accent, opacity: 0.6 }} />
+              <Quote size={20} className="review-quote-icon" />
               <p className="review-quote-text">&ldquo;{item.review}&rdquo;</p>
             </div>
           </div>
