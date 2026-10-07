@@ -12,7 +12,10 @@ export default function BeforeAfterSlider() {
     <section className="classy-transform-section" id="transformation">
       <div className="container">
         <div className="classy-section-header">
-          <span className="classy-section-badge">The Turnkey Transformation</span>
+          <div className="structured-step-badge">
+            <span className="structured-step-num">04</span>
+            <span className="structured-step-text">The Turnkey Transformation</span>
+          </div>
           <h2 className="classy-section-title">
             From Bare Concrete to <span className="classy-gold-text">Refined Living</span>
           </h2>
@@ -145,9 +148,9 @@ export default function BeforeAfterSlider() {
             <span className="classy-metric-num">146 Audits</span>
             <span className="classy-metric-lbl">Architect Quality Checks</span>
           </div>
-          <div className="classy-metric-item">
-            <span className="classy-metric-num">10 Years</span>
-            <span className="classy-metric-lbl">IS 710 BWP Warranty</span>
+          <div className="classy-metric-item" style={{ borderColor: "var(--liv-green-border)", background: "var(--liv-green-soft)" }}>
+            <span className="classy-metric-num" style={{ color: "var(--liv-green-dark)" }}>10 Years</span>
+            <span className="classy-metric-lbl" style={{ color: "var(--liv-green)" }}>🌿 Eco IS 710 Green Ply</span>
           </div>
           <div className="classy-metric-item">
             <span className="classy-metric-num">100%</span>

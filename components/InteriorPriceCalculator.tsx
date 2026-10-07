@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   CheckCircle2, Info, ArrowRight,
   Shield, Clock, ChefHat, BedDouble, Sofa, Flame,
-  Lightbulb, Layers, CreditCard, Sparkles
+  Lightbulb, Layers, CreditCard, Sparkles, Leaf
 } from "lucide-react";
 import WhatsAppIcon from "./WhatsAppIcon";
 
@@ -174,9 +174,9 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
     <div className={`calculator-component ${standalone ? "calculator-standalone" : ""}`} id="calculator">
       <div className="calculator-wrapper">
         <div className="calculator-header-block">
-          <div className="badge-gold">
-            <Sparkles size={13} />
-            <span>Interactive Investment Estimator</span>
+          <div className="structured-step-badge">
+            <span className="structured-step-num green">07</span>
+            <span className="structured-step-text">Transparent Investment Estimator</span>
           </div>
           <h2 className="calc-main-title">Estimate Your Interior Investment In Real Time</h2>
           <p className="calc-main-desc">
@@ -423,6 +423,24 @@ export default function InteriorPriceCalculator({ standalone = false }: { standa
               }}>
                 <CreditCard size={14} />
                 <span>No-Cost EMI from ₹{emiPerMonth.toLocaleString("en-IN")}/mo</span>
+              </div>
+
+              {/* Eco Green Certified Pill */}
+              <div style={{
+                marginTop: 8,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                background: "var(--liv-green-soft)",
+                border: "1px solid var(--liv-green-border)",
+                color: "var(--liv-green-dark)",
+                fontSize: 11,
+                fontWeight: 700,
+                padding: "5px 12px",
+                borderRadius: 999,
+              }}>
+                <Leaf size={12} color="var(--liv-green)" />
+                <span>🌿 100% Eco-Safe Green Certified BWP Materials Included</span>
               </div>
             </div>
 

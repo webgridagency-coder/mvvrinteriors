@@ -423,9 +423,12 @@ export default function HomePage() {
               </div>
             </div>
             <div className="hero-social-text">
-              <strong>
-                <GsapCounter target={500} suffix="+" duration={1.8} />
-              </strong>
+              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <span className="live-indicator-green" />
+                <strong>
+                  <GsapCounter target={500} suffix="+" duration={1.8} />
+                </strong>
+              </div>
               <span>Happy Residents</span>
             </div>
           </div>
@@ -448,6 +451,9 @@ export default function HomePage() {
             </div>
 
             <div className="hero-stat-floating-card">
+              <div className="badge-green" style={{ fontSize: 10, padding: "2px 8px", marginBottom: 6, display: "inline-flex" }}>
+                <span>🌿 Eco IS 710 Green Ply</span>
+              </div>
               <div className="hero-stat-big">
                 <GsapCounter target={45} suffix=" Days" duration={1.6} />
               </div>
@@ -529,7 +535,7 @@ export default function HomePage() {
       {/* Featured Services Overview */}
       <section
         ref={servicesRef}
-        style={{ padding: "100px 0", background: "var(--cream)" }}
+        style={{ padding: "100px 0", background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)", borderTop: "1px solid #E2E8F0" }}
         id="services"
       >
         <div className="container">
@@ -544,12 +550,10 @@ export default function HomePage() {
             }}
           >
             <div>
-              <span
-                className="page-hero-badge"
-                style={{ color: "var(--charcoal)", borderColor: "var(--gold)" }}
-              >
-                Our Core Expertise
-              </span>
+              <div className="structured-step-badge">
+                <span className="structured-step-num">05</span>
+                <span className="structured-step-text">Core Architectural Capabilities</span>
+              </div>
               <GsapTextReveal
                 text="Turnkey Interior Architecture"
                 as="h2"
@@ -576,7 +580,7 @@ export default function HomePage() {
               <Link
                 href="/services"
                 className="btn-outline"
-                style={{ borderColor: "var(--charcoal)", color: "var(--charcoal)" }}
+                style={{ borderColor: "#CBD5E1", color: "var(--charcoal)" }}
               >
                 <span>View All Services</span>
                 <ArrowRight size={14} />
@@ -596,8 +600,8 @@ export default function HomePage() {
                     background: "var(--white)",
                     borderRadius: 16,
                     overflow: "hidden",
-                    boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
-                    border: "1px solid rgba(0,0,0,0.06)",
+                    boxShadow: "0 6px 22px rgba(15, 23, 42, 0.05)",
+                    border: "1px solid #E2E8F0",
                     display: "flex",
                     flexDirection: "column",
                   }}
@@ -619,29 +623,54 @@ export default function HomePage() {
                         width: 40,
                         height: 40,
                         borderRadius: 10,
-                        background: "rgba(20,20,20,0.85)",
-                        backdropFilter: "blur(6px)",
-                        color: "var(--gold)",
+                        background: "#FFFFFF",
+                        color: i % 2 === 0 ? "var(--liv-pink)" : "var(--liv-blue)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        border: "1px solid rgba(201,168,76,0.3)",
+                        border: "1px solid #E2E8F0",
+                        boxShadow: "0 4px 12px rgba(15, 23, 42, 0.08)",
+                        zIndex: 2,
                       }}
                     >
                       <Icon size={20} />
                     </div>
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 14,
+                        right: 14,
+                        background: "rgba(255,255,255,0.92)",
+                        backdropFilter: "blur(4px)",
+                        padding: "3px 9px",
+                        borderRadius: 999,
+                        fontSize: 10.5,
+                        fontWeight: 800,
+                        color: "#475569",
+                        border: "1px solid #E2E8F0",
+                        zIndex: 2,
+                      }}
+                    >
+                      SERVICE 0{i + 1}
+                    </div>
                   </div>
 
-                  <div className="service-card-body">
+                  <div className="service-card-body" style={{ display: "flex", flexDirection: "column", flex: 1 }}>
                     <h3 className="service-name">
                       {srv.name}
                     </h3>
                     <p className="service-desc">
                       {srv.desc}
                     </p>
+                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 8, marginBottom: 14 }}>
+                      <span className="badge-green" style={{ fontSize: 9.5, padding: "2px 7px" }}>🌿 Eco BWP</span>
+                      <span style={{ fontSize: 9.5, padding: "2px 7px", borderRadius: 999, background: "var(--liv-blue-soft)", color: "var(--liv-blue)", fontWeight: 700, border: "1px solid var(--liv-blue-border)" }}>German Blum</span>
+                      <span style={{ fontSize: 9.5, padding: "2px 7px", borderRadius: 999, background: "var(--liv-pink-soft)", color: "var(--liv-pink)", fontWeight: 700, border: "1px solid var(--liv-pink-border)" }}>45-Day Handover</span>
+                    </div>
                     <Link
                       href={srv.href}
                       className="service-link"
+                      style={{ marginTop: "auto" }}
                     >
                       <span>Explore Specifications</span>
                       <ArrowRight size={13} />
@@ -671,9 +700,10 @@ export default function HomePage() {
             }}
           >
             <div>
-              <span className="page-hero-badge" style={{ color: "var(--liv-pink)", borderColor: "var(--liv-pink-border)", background: "var(--liv-pink-soft)" }}>
-                Realized Masterpieces
-              </span>
+              <div className="structured-step-badge">
+                <span className="structured-step-num blue">06</span>
+                <span className="structured-step-text">Realized Masterpieces</span>
+              </div>
               <GsapTextReveal
                 text="Recent Delivered Projects"
                 as="h2"
@@ -752,6 +782,20 @@ export default function HomePage() {
                     style={{ objectFit: "cover" }}
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
+                  <div
+                    className="badge-green"
+                    style={{
+                      position: "absolute",
+                      top: 12,
+                      right: 12,
+                      zIndex: 3,
+                      fontSize: 10,
+                      padding: "3px 9px",
+                    }}
+                  >
+                    <span className="live-indicator-green" style={{ width: 6, height: 6 }} />
+                    <span>Delivered Day 43</span>
+                  </div>
                   <div
                     style={{
                       position: "absolute",
@@ -833,12 +877,10 @@ export default function HomePage() {
       >
         <div className="container">
           <div style={{ textAlign: "center", maxWidth: 680, margin: "0 auto 36px" }}>
-            <span
-              className="page-hero-badge"
-              style={{ color: "var(--liv-pink)", borderColor: "var(--liv-pink-border)", background: "var(--liv-pink-soft)" }}
-            >
-              Client Stories &amp; Accolades
-            </span>
+            <div className="structured-step-badge">
+              <span className="structured-step-num">08</span>
+              <span className="structured-step-text">Client Stories &amp; Accolades</span>
+            </div>
             <GsapTextReveal
               text="What Homeowners Say About Us"
               as="h2"

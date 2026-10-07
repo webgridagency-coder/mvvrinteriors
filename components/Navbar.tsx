@@ -79,6 +79,25 @@ export default function Navbar() {
 
         {/* Desktop Actions */}
         <div className="nav-actions">
+          <div
+            className="nav-live-slot-pill"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              background: "var(--liv-green-soft)",
+              border: "1px solid var(--liv-green-border)",
+              color: "var(--liv-green-dark)",
+              fontSize: 11,
+              fontWeight: 700,
+              padding: "5px 12px",
+              borderRadius: 999,
+              letterSpacing: "0.02em",
+            }}
+          >
+            <span className="live-indicator-green" />
+            <span>45-Day Slots Open</span>
+          </div>
           <a
             href="tel:+919391356077"
             className="nav-phone"

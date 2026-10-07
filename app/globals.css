@@ -20,6 +20,15 @@
   --liv-blue-border: #BFDBFE;
   --liv-blue-shadow: 0 6px 22px rgba(27, 92, 235, 0.25);
 
+  /* ARCHITECTURAL BOTANICAL & SAGE GREEN (TRUST, ECO & BIOPHILIC ACCENTS) */
+  --liv-green: #059669;
+  --liv-green-light: #10B981;
+  --liv-green-dark: #047857;
+  --liv-green-soft: #ECFDF5;
+  --liv-green-border: #A7F3D0;
+  --liv-green-shadow: 0 6px 20px rgba(16, 185, 129, 0.22);
+  --liv-gradient-green: linear-gradient(135deg, #10B981 0%, #059669 100%);
+
   /* GRADIENTS */
   --liv-gradient: linear-gradient(135deg, #E72E5A 0%, #1B5CEB 100%);
   --liv-gradient-pink: linear-gradient(135deg, #FF4D79 0%, #E72E5A 100%);
@@ -4182,6 +4191,91 @@ input, select, textarea { font-family: inherit; }
   margin-bottom: 16px;
 }
 
+.classy-section-badge.green {
+  color: var(--liv-green);
+  border-color: var(--liv-green-border);
+  background: var(--liv-green-soft);
+}
+
+.classy-section-badge.blue {
+  color: var(--liv-blue);
+  border-color: var(--liv-blue-border);
+  background: var(--liv-blue-soft);
+}
+
+/* Structured Architectural Step Eyebrow System */
+.structured-step-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  padding: 5px 16px 5px 6px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+}
+
+.structured-step-num {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--liv-pink);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+}
+
+.structured-step-num.green {
+  background: var(--liv-green);
+}
+
+.structured-step-num.blue {
+  background: var(--liv-blue);
+}
+
+.structured-step-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+/* Green Eco Pill & Badge */
+.badge-green, .eco-cert-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: var(--liv-green-soft);
+  border: 1px solid var(--liv-green-border);
+  color: var(--liv-green);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.live-indicator-green {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  display: inline-block;
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
 .classy-section-title {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4vw, 3.2rem);
@@ -4295,6 +4389,20 @@ input, select, textarea { font-family: inherit; }
 .classy-perk-card:nth-child(even) .classy-perk-icon-wrap {
   background: var(--liv-blue-soft);
   color: var(--liv-blue);
+}
+
+.classy-perk-card.perk-green .classy-perk-icon-wrap {
+  background: var(--liv-green-soft) !important;
+  color: var(--liv-green) !important;
+}
+
+.classy-perk-card.perk-green .classy-perk-tag {
+  color: var(--liv-green) !important;
+}
+
+.classy-perk-card.perk-green:hover {
+  border-color: var(--liv-green) !important;
+  box-shadow: 0 14px 35px rgba(16, 185, 129, 0.16) !important;
 }
 
 .classy-perk-tag {

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check, Shield } from "lucide-react";
+import { ArrowRight, Check, Shield, Leaf } from "lucide-react";
 import WhatsAppIcon from "./WhatsAppIcon";
 
 export interface RoomItem {
@@ -100,7 +100,10 @@ export default function ExploreByRoom() {
       <div className="container">
         {/* Editorial Section Header */}
         <div className="classy-section-header">
-          <span className="classy-section-badge">Curated Spatial Concepts</span>
+          <div className="structured-step-badge">
+            <span className="structured-step-num blue">02</span>
+            <span className="structured-step-text">Curated Spatial Concepts</span>
+          </div>
           <h2 className="classy-section-title">
             Tailor-Made Interior Architecture for <span className="classy-gold-text">Every Room</span>
           </h2>
@@ -135,6 +138,20 @@ export default function ExploreByRoom() {
                   className="classy-room-img"
                   style={{ objectFit: "cover" }}
                 />
+                <div
+                  className="badge-green"
+                  style={{
+                    position: "absolute",
+                    top: 12,
+                    left: 12,
+                    zIndex: 3,
+                    fontSize: 10,
+                    padding: "3px 9px",
+                  }}
+                >
+                  <Leaf size={10} />
+                  <span>Eco BWP Ply</span>
+                </div>
                 <div className="classy-room-price-tag">
                   <span>Starts {room.startingPrice}</span>
                 </div>
@@ -151,7 +168,7 @@ export default function ExploreByRoom() {
                 <div className="classy-room-specs">
                   {room.features.map((feat, idx) => (
                     <div key={idx} className="classy-spec-item">
-                      <Check size={13} color="var(--liv-pink)" />
+                      <Check size={13} color={idx === 0 ? "var(--liv-green)" : "var(--liv-pink)"} />
                       <span>{feat}</span>
                     </div>
                   ))}

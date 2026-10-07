@@ -1,20 +1,23 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sparkles, Shield, Clock, Compass, Award, Gem, Check } from "lucide-react";
+import { Sparkles, Shield, Clock, Compass, Award, Gem, Check, Leaf } from "lucide-react";
 
 const MARQUEE_ITEMS = [
   { icon: Clock, text: "45-Day Handover Guarantee" },
+  { icon: Leaf, text: "100% Eco-Safe & Non-Toxic Green Materials" },
   { icon: Shield, text: "10-Year BWP Marine Ply Warranty" },
   { icon: Gem, text: "German Blum Soft-Close Hardware" },
   { icon: Compass, text: "100% Vastu Shastra Aligned" },
   { icon: Sparkles, text: "Italian Quartz & Makrana Marble" },
-  { icon: Check, text: "Zero Hidden Markups · Fixed Pricing" },
+  { icon: Check, text: "Zero Hidden Markups · Fixed Itemized Pricing" },
   { icon: Award, text: "500+ Luxury Homes Delivered Across AP & TS" },
 ];
 
 export default function LuxuryMarquee() {
   const [isPaused, setIsPaused] = useState(false);
+
+  const colors = ["#E72E5A", "#059669", "#1B5CEB"];
 
   return (
     <div
@@ -74,7 +77,7 @@ export default function LuxuryMarquee() {
       >
         {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, idx) => {
           const Icon = item.icon;
-          const isEven = idx % 2 === 0;
+          const color = colors[idx % colors.length];
           return (
             <div
               key={idx}
@@ -90,7 +93,7 @@ export default function LuxuryMarquee() {
                 color: "#1E293B",
               }}
             >
-              <Icon size={15} color={isEven ? "#E72E5A" : "#1B5CEB"} />
+              <Icon size={15} color={color} />
               <span>{item.text}</span>
               <span
                 style={{
@@ -98,7 +101,7 @@ export default function LuxuryMarquee() {
                   width: "5px",
                   height: "5px",
                   borderRadius: "50%",
-                  background: isEven ? "#E72E5A" : "#1B5CEB",
+                  background: color,
                   marginLeft: "18px",
                   opacity: 0.6,
                 }}

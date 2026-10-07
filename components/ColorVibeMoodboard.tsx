@@ -39,6 +39,27 @@ const VIBES: VibeTheme[] = [
     ],
   },
   {
+    id: "sage-biophilic",
+    name: "Sage & Biophilic Eucalyptus",
+    badge: "Eco-Luxe Biophilic",
+    description: "Botanical sage green cabinetry paired with deep emerald velvet, natural light oak fluting, indoor planter alcoves, and brushed brass details for calming nature-infused rejuvenation.",
+    image: "/kitchen-island.jpg",
+    roomTag: "Botanical Kitchen & Living Nook",
+    palette: [
+      { name: "Botanical Sage", hex: "#059669", role: "Primary Shutter Finishes" },
+      { name: "Forest Emerald", hex: "#065F46", role: "Velvet Lounge Textiles" },
+      { name: "Crisp Pure White", hex: "#FFFFFF", role: "Quartz Island Countertop" },
+      { name: "Soft Sage Mint", hex: "#ECFDF5", role: "Perimeter LED Cove" },
+      { name: "Brushed Brass", hex: "#D4AF37", role: "Hardware Profiles & Knobs" },
+    ],
+    elements: [
+      "Zero-formaldehyde eco-certified BWP marine ply with low-VOC waterborne PU finishes",
+      "Integrated planter alcoves with drainage channels for air-purifying indoor greenery",
+      "Anti-fingerprint matte sage acrylic shutters with Blum soft-close Aventos lift-ups",
+      "Acoustic fluted eucalyptus timber panels behind living & dining feature zones",
+    ],
+  },
+  {
     id: "ocean-coastal",
     name: "Ocean Cobalt & Coastal White",
     badge: "Modern Minimalist",
@@ -111,7 +132,10 @@ export default function ColorVibeMoodboard() {
     <section className="classy-vibe-section" id="moodboard">
       <div className="container">
         <div className="classy-section-header">
-          <span className="classy-section-badge">Material &amp; Color Direction</span>
+          <div className="structured-step-badge">
+            <span className="structured-step-num green">03</span>
+            <span className="structured-step-text">Material &amp; Color Direction</span>
+          </div>
           <h2 className="classy-section-title">
             Architectural Palettes &amp; <span className="classy-gold-text">Material Moods</span>
           </h2>
